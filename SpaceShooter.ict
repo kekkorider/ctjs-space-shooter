@@ -373,7 +373,7 @@ assets:
           isUi: false
         lib: core
     extends:
-      cgroup: ''
+      cgroup: Hostile
     lastmod: 1718479804095
     uid: TKghzWnDLKcqtd
     behaviors: []
@@ -435,8 +435,8 @@ assets:
         arguments: {}
         lib: core
     extends:
-      cgroup: ''
-    lastmod: 1718550881024
+      cgroup: Hostile
+    lastmod: 1718554718783
     uid: BrH4zLN32nQ4nT
     behaviors: []
     extendTypes: ''
@@ -478,8 +478,8 @@ assets:
           template: 87KFhwDCr3CMf7
         lib: place
     extends:
-      cgroup: ''
-    lastmod: 1718554050072
+      cgroup: Hostile
+    lastmod: 1718554732396
     uid: WnN1whLhhnbRd1
     behaviors: []
     extendTypes: ''
@@ -518,8 +518,8 @@ assets:
           template: 87KFhwDCr3CMf7
         lib: place
     extends:
-      cgroup: ''
-    lastmod: 1718554064385
+      cgroup: Hostile
+    lastmod: 1718554739388
     uid: bqn933gkcnR9Dc
     behaviors: []
     extendTypes: ''
@@ -563,9 +563,25 @@ assets:
         arguments:
           action: Shoot
         lib: core
+      - eventKey: collisionCGroup
+        code: |-
+          other.kill = templates.isCopy(other)
+
+          rooms.current.lives--
+
+          if (rooms.current.lives <= 0) {
+              this.kill = true
+              
+              u.wait(1000).then(() => {
+                  rooms.switch("Main")
+              })
+          }
+        arguments:
+          group: Hostile
+        lib: place
     extends:
       cgroup: ''
-    lastmod: 1718479237740
+    lastmod: 1718555354386
     uid: b2HjJKB6T9r7WM
     behaviors: []
     extendTypes: ''
@@ -627,9 +643,21 @@ assets:
         exts: {}
         customProperties: {}
         bindings: {}
+      - x: 700
+        'y': 12
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: kB17B5HTMt1zhb
+        exts: {}
+        customProperties: {}
+        bindings: {}
     tiles: []
     extends: {}
-    lastmod: 1718553823780
+    lastmod: 1718554743785
     events:
       - eventKey: OnRoomStart
         code: |-
@@ -637,6 +665,7 @@ assets:
           this.timer2 = 3 // enemies timer
 
           this.score = 0
+          this.lives = 3
         arguments: {}
         lib: core
       - eventKey: Timer1
@@ -726,6 +755,52 @@ assets:
       - allInFont
     customCharset: ''
     uid: krGQ1CB5r1NMtP
+  - type: template
+    baseClass: Text
+    name: LivesText
+    depth: 1000
+    texture: -1
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
+    events:
+      - eventKey: OnStep
+        lib: core
+        code: this.move();
+        arguments: {}
+      - eventKey: OnDraw
+        code: 'this.text = `Lives: ${rooms.current.lives}`'
+        arguments: {}
+        lib: core
+    extends:
+      cgroup: ''
+    lastmod: 1718554550086
+    uid: kB17B5HTMt1zhb
+    behaviors: []
+    extendTypes: ''
+    defaultText: 'Lives: 0'
+    textStyle: bTqGjr8LQQf8CG
+  - type: style
+    name: LivesText
+    uid: bTqGjr8LQQf8CG
+    typeface: krGQ1CB5r1NMtP
+    font:
+      family: sans-serif
+      halign: right
+      italic: false
+      size: 28
+      weight: '400'
+      wrap: false
+      wrapPosition: 350
+      lineHeight: 37.24
+    lastmod: 1718554621229
+    fill:
+      type: '0'
+      color: '#FFE626'
+    stroke:
+      color: '#5D6115'
+      weight: 5
 globalVars: []
 settings:
   authoring:
