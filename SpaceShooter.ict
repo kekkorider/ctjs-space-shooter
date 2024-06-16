@@ -6,7 +6,10 @@ libs:
   place:
     gridX: 1024
     gridY: 1024
-  pointer: {}
+    debugMode: false
+    debugText: 16
+  pointer:
+    startlocked: false
   keyboard: {}
   keyboard.polyfill: {}
   pointer.polyfill: {}
@@ -34,8 +37,9 @@ actions:
         multiplier: -1
       - code: keyboard.ArrowRight
       - code: keyboard.KeyA
-      - code: keyboard.KeyD
         multiplier: -1
+      - code: keyboard.KeyD
+        multiplier: 1
 scripts: []
 assets:
   - lastmod: 1718477736614
@@ -559,7 +563,7 @@ assets:
         lib: place
     extends:
       cgroup: ''
-    lastmod: 1718556364777
+    lastmod: 1718556518726
     uid: b2HjJKB6T9r7WM
     behaviors: []
     extendTypes: ''
@@ -635,7 +639,7 @@ assets:
         bindings: {}
     tiles: []
     extends: {}
-    lastmod: 1718556249329
+    lastmod: 1718557261932
     events:
       - eventKey: OnRoomStart
         code: |-
