@@ -491,6 +491,9 @@ assets:
 
           this.invincible = false
 
+          this.shield = null
+          this.powerup_shield = 0
+
           this.textureHalfWidth = this.texture.width * 0.5
           this.textureHalfHeight = this.texture.height * 0.5
         arguments: {}
@@ -502,6 +505,23 @@ assets:
         lib: core
       - eventKey: collisionCGroup
         code: |-
+          this.powerup_shield = Math.max(0, this.powerup_shield - 1)
+
+          if (this.shield) {
+              other.kill = true
+              
+              this.powerup_shield = Math.max(0, this.powerup_shield - 1)
+              this.removeChild(this.shield)
+
+              if (this.powerup_shield === 0) {
+                  this.shield = null
+              } else {
+                  this.shield = templates.copy(`Shield_0${this.powerup_shield}`, 0, 0)
+              }
+
+              return
+          }
+
           if (this.invincible) return
 
           other.kill = templates.isCopy(other)
@@ -525,8 +545,8 @@ assets:
           group: Hostile
         lib: place
     extends:
-      cgroup: ''
-    lastmod: 1718560087205
+      cgroup: Player
+    lastmod: 1718562783230
     uid: b2HjJKB6T9r7WM
     behaviors: []
     extendTypes: ''
@@ -559,7 +579,7 @@ assets:
         parallaxX: 1
         parallaxY: 1
         movementX: 0
-        movementY: 0
+        movementY: 20
         scaleX: 1
         scaleY: 1
         repeat: repeat
@@ -602,7 +622,7 @@ assets:
         bindings: {}
     tiles: []
     extends: {}
-    lastmod: 1718560969078
+    lastmod: 1718566416717
     events:
       - eventKey: OnRoomStart
         code: |-
@@ -776,7 +796,7 @@ assets:
         lib: place
     specification: []
     extendTypes: ''
-    lastmod: 1718556159950
+    lastmod: 1718564059701
     uid: 1b9c95zrCknK7b
   - lastmod: 1718561963337
     type: texture
@@ -952,9 +972,18 @@ assets:
           name: Shoot
           isUi: false
         lib: core
+      - eventKey: OnDestroy
+        code: |-
+          const dropPowerUp = random.dice(0, 1)
+
+          if (!dropPowerUp) return
+
+          templates.copy("Powerup_Green_Shield", this.x, this.y)
+        arguments: {}
+        lib: core
     specification: []
     extendTypes: ''
-    lastmod: 1718560753445
+    lastmod: 1718562375197
     uid: tFn59wC2D4JHTN
   - type: behavior
     name: Enemy Laser Behavior
@@ -977,6 +1006,246 @@ assets:
     extendTypes: ''
     lastmod: 1718561277699
     uid: JR5J52dnzK2hgn
+  - lastmod: 1718562551508
+    type: texture
+    name: Powerup_Green_Shield
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 17
+      - 16
+    marginx: 0
+    marginy: 0
+    imgWidth: 34
+    imgHeight: 33
+    width: 34
+    height: 33
+    offx: 0
+    offy: 0
+    origname: i8p6nPWcJw71DJ6.png
+    shape: rect
+    left: 17
+    right: 17
+    top: 16
+    bottom: 17
+    uid: 8p6nPWcJw71DJ6
+    padding: 1
+    isBlank: false
+    source: >-
+      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+      Space Shooter/Powerup_Green_Shield.png
+  - lastmod: 1718564775526
+    type: texture
+    name: Shield_01
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 66
+      - 54
+    marginx: 0
+    marginy: 0
+    imgWidth: 133
+    imgHeight: 108
+    width: 133
+    height: 108
+    offx: 0
+    offy: 0
+    origname: iRdBb52TLjfb27B.png
+    shape: rect
+    left: 66
+    right: 67
+    top: 54
+    bottom: 54
+    uid: RdBb52TLjfb27B
+    padding: 1
+    isBlank: false
+    source: >-
+      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+      Space Shooter/Shield_01.png
+    r: 54
+  - lastmod: 1718564780785
+    type: texture
+    name: Shield_02
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 71
+      - 59
+    marginx: 0
+    marginy: 0
+    imgWidth: 143
+    imgHeight: 119
+    width: 143
+    height: 119
+    offx: 0
+    offy: 0
+    origname: iTkKBzqML3tk9J9.png
+    shape: rect
+    left: 71
+    right: 72
+    top: 59
+    bottom: 60
+    uid: TkKBzqML3tk9J9
+    padding: 1
+    isBlank: false
+    source: >-
+      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+      Space Shooter/Shield_02.png
+  - lastmod: 1718564791574
+    type: texture
+    name: Shield_03
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 72
+      - 68
+    marginx: 0
+    marginy: 0
+    imgWidth: 144
+    imgHeight: 137
+    width: 144
+    height: 137
+    offx: 0
+    offy: 0
+    origname: iMwT67gftJwLKJd.png
+    shape: rect
+    left: 72
+    right: 72
+    top: 68
+    bottom: 69
+    uid: MwT67gftJwLKJd
+    padding: 1
+    isBlank: false
+    source: >-
+      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+      Space Shooter/Shield_03.png
+  - type: template
+    baseClass: AnimatedSprite
+    name: Shield_01
+    depth: 0
+    texture: RdBb52TLjfb27B
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
+    events:
+      - eventKey: OnStep
+        lib: core
+        code: this.move();
+        arguments: {}
+    extends: {}
+    lastmod: 1718562235050
+    uid: td2zN2PqwWTf43
+    behaviors: []
+    extendTypes: ''
+  - type: template
+    baseClass: AnimatedSprite
+    name: Shield_03
+    depth: 0
+    texture: MwT67gftJwLKJd
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
+    events:
+      - eventKey: OnStep
+        lib: core
+        code: this.move();
+        arguments: {}
+    extends: {}
+    lastmod: 1718562238675
+    uid: 7r35hJR3DgRfCk
+    behaviors: []
+    extendTypes: ''
+  - type: template
+    baseClass: AnimatedSprite
+    name: Shield_02
+    depth: 0
+    texture: TkKBzqML3tk9J9
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
+    events:
+      - eventKey: OnStep
+        lib: core
+        code: this.move();
+        arguments: {}
+    extends: {}
+    lastmod: 1718562241329
+    uid: tt1hjfhFq19KT4
+    behaviors: []
+    extendTypes: ''
+  - type: template
+    baseClass: AnimatedSprite
+    name: Powerup_Green_Shield
+    depth: 0
+    texture: 8p6nPWcJw71DJ6
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
+    events:
+      - eventKey: OnStep
+        lib: core
+        code: this.move();
+        arguments: {}
+      - eventKey: OnCreate
+        code: this.powerup_name = "Shield"
+        arguments: {}
+        lib: core
+    extends:
+      cgroup: ''
+    lastmod: 1718562906396
+    uid: Tb1dKhfnDjBF2P
+    behaviors:
+      - kGtLHT7pMQFGNH
+    extendTypes: ''
+  - type: behavior
+    name: Powerup Behavior
+    behaviorType: template
+    events:
+      - eventKey: OnCreate
+        code: |-
+          this.speed = 80
+          this.direction = 90
+        arguments: {}
+        lib: core
+      - eventKey: OnStep
+        code: this.kill = this.y > camera.height + 80
+        arguments: {}
+        lib: core
+      - eventKey: collisionCGroup
+        code: |-
+          switch (this.powerup_name) {
+              case "Shield":
+                  other.powerup_shield = Math.min(3, other.powerup_shield + 1)
+                  other.powerup_shield === 3 && (rooms.current.score += 1000)
+
+                  other.shield && other.removeChild(other.shield)
+
+                  other.shield = templates.copy(`Shield_0${other.powerup_shield}`, 0, 0)
+
+                  other.addChild(other.shield)
+                  break
+          }
+
+          this.kill = true
+        arguments:
+          group: Player
+        lib: place
+    specification: []
+    extendTypes: ''
+    lastmod: 1718562941520
+    uid: kGtLHT7pMQFGNH
 globalVars: []
 settings:
   authoring:
