@@ -357,6 +357,8 @@ assets:
         code: |-
           other.kill = true
           this.kill = true
+
+          rooms.current.score += 100
         arguments:
           template: 87KFhwDCr3CMf7
         lib: place
@@ -451,6 +453,8 @@ assets:
       - eventKey: OnStep
         lib: core
         code: |-
+          this.angle += 100 * u.time
+
           this.move();
 
           this.kill = this.y > camera.height + this.texture.height
@@ -468,12 +472,14 @@ assets:
 
           templates.copy("Meteor_Grey_Med_01", this.x, this.y)
           templates.copy("Meteor_Grey_Med_01", this.x, this.y)
+
+          rooms.current.score += 100
         arguments:
           template: 87KFhwDCr3CMf7
         lib: place
     extends:
       cgroup: ''
-    lastmod: 1718481453632
+    lastmod: 1718554050072
     uid: WnN1whLhhnbRd1
     behaviors: []
     extendTypes: ''
@@ -490,6 +496,8 @@ assets:
       - eventKey: OnStep
         lib: core
         code: |-
+          this.angle += 100 * u.time
+
           this.move();
 
           this.kill = this.y > camera.height + this.texture.height
@@ -504,12 +512,14 @@ assets:
         code: |-
           other.kill = true
           this.kill = true
+
+          rooms.current.score += 150
         arguments:
           template: 87KFhwDCr3CMf7
         lib: place
     extends:
       cgroup: ''
-    lastmod: 1718481343480
+    lastmod: 1718554064385
     uid: bqn933gkcnR9Dc
     behaviors: []
     extendTypes: ''
@@ -566,11 +576,11 @@ assets:
     onleave: ''
     gridX: 64
     gridY: 64
-    diagonalGrid: false
-    disableGrid: false
+    diagonalGrid: true
+    disableGrid: true
     simulate: true
-    width: 1280
-    height: 720
+    width: 864
+    height: 486
     restrictCamera: false
     restrictMaxX: 1280
     restrictMinX: 1280
@@ -593,8 +603,8 @@ assets:
         scaleY: 1
         repeat: repeat
     copies:
-      - x: 704
-        'y': 640
+      - x: 432.1015625
+        'y': 411.53125
         opacity: 1
         tint: 16777215
         scale:
@@ -605,14 +615,28 @@ assets:
         exts: {}
         customProperties: {}
         bindings: {}
+      - x: 24
+        'y': 12
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: M45TqgDPP2QJ4M
+        exts: {}
+        customProperties: {}
+        bindings: {}
     tiles: []
     extends: {}
-    lastmod: 1718552053286
+    lastmod: 1718553823780
     events:
       - eventKey: OnRoomStart
         code: |-
           this.timer1 = 0.3 // asteroids timer
           this.timer2 = 3 // enemies timer
+
+          this.score = 0
         arguments: {}
         lib: core
       - eventKey: Timer1
@@ -640,6 +664,68 @@ assets:
     behaviors: []
     extendTypes: ''
     uid: mz3rNF1R7L7j4K
+  - type: template
+    baseClass: Text
+    name: ScoreText
+    depth: 1000
+    texture: -1
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
+    events:
+      - eventKey: OnStep
+        lib: core
+        code: this.move();
+        arguments: {}
+      - eventKey: OnDraw
+        code: 'this.text = `Score: ${rooms.current.score}`'
+        arguments: {}
+        lib: core
+    extends:
+      cgroup: ''
+    lastmod: 1718553779444
+    uid: M45TqgDPP2QJ4M
+    behaviors: []
+    extendTypes: ''
+    defaultText: 'Score: 0'
+    textStyle: 8B57cPJczpNWzM
+  - type: style
+    name: ScoreText
+    uid: 8B57cPJczpNWzM
+    typeface: krGQ1CB5r1NMtP
+    font:
+      family: sans-serif
+      halign: left
+      italic: false
+      size: 32
+      weight: '400'
+      wrap: false
+      wrapPosition: 350
+      lineHeight: 42.56
+    lastmod: 1718553980784
+    fill:
+      type: '0'
+      color: '#26B7FF'
+    stroke:
+      color: '#1C3473'
+      weight: 7
+  - name: Kenney-Future-Narrow
+    type: typeface
+    fonts:
+      - weight: '400'
+        italic: false
+        uid: J4t2j1HjKjc21C
+        origname: Kenney-Future-Narrow
+    lastmod: 1718553933429
+    bitmapFont: false
+    bitmapFontSize: 16
+    bitmapFontLineHeight: 18
+    bitmapPrecision: false
+    charsets:
+      - allInFont
+    customCharset: ''
+    uid: krGQ1CB5r1NMtP
 globalVars: []
 settings:
   authoring:
@@ -693,3 +779,4 @@ settings:
     alternativeLogo: false
     customLoadingText: ''
   fps: 30
+palette: []
