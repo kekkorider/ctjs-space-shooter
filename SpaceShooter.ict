@@ -125,7 +125,7 @@ assets:
       - x: -7.833333333333331
         'y': -39.5
     closedStrip: true
-  - lastmod: 1718477875570
+  - lastmod: 1718561803521
     type: texture
     name: Laser_Blue_01
     untill: 0
@@ -333,54 +333,25 @@ assets:
   - type: template
     baseClass: AnimatedSprite
     name: Enemy_Red_03
-    depth: 0
+    depth: 1
     texture: LfgBCJLKQk7JML
     playAnimationOnStart: false
     loopAnimation: true
     animationFPS: 30
     visible: true
     events:
-      - eventKey: OnStep
-        lib: core
-        code: |-
-          this.move();
-
-          this.kill = this.y > camera.height + this.textureHalfHeight
-        arguments: {}
       - eventKey: OnCreate
         code: |-
-          this.speed = 180
-          this.direction = random.range(70, 110)
-
-          this.textureHalfHeight = this.texture.height * 0.5
-
-          this.timer1 = 1
+          this.score_on_kill = 100
+          this.shoot_label = "Laser_Red_09"
         arguments: {}
-        lib: core
-      - eventKey: collisionTemplate
-        code: |-
-          other.kill = true
-          this.kill = true
-
-          rooms.current.score += 100
-        arguments:
-          template: 87KFhwDCr3CMf7
-        lib: place
-      - eventKey: Timer1
-        code: >-
-          this.timer1 = 3
-
-          templates.copy("Laser_Red_09", this.x, this.y + this.texture.height *
-          0.5)
-        arguments:
-          name: Shoot
-          isUi: false
         lib: core
     extends:
       cgroup: Hostile
-    lastmod: 1718479804095
+    lastmod: 1718560471985
     uid: TKghzWnDLKcqtd
-    behaviors: []
+    behaviors:
+      - tFn59wC2D4JHTN
     extendTypes: ''
   - type: template
     baseClass: AnimatedSprite
@@ -423,26 +394,18 @@ assets:
     events:
       - eventKey: OnStep
         lib: core
-        code: |-
-          this.kill = this.y > camera.height + this.texture.height
-
-          this.move();
-
-          this.angle -= 240 * u.time
+        code: this.angle -= 240 * u.time
         arguments: {}
       - eventKey: OnCreate
-        code: |-
-          this.speed = 480
-          this.direction = 90
-
-          this.angle = random.deg()
+        code: this.angle = random.deg()
         arguments: {}
         lib: core
     extends:
       cgroup: Hostile
-    lastmod: 1718554718783
+    lastmod: 1718561277668
     uid: BrH4zLN32nQ4nT
-    behaviors: []
+    behaviors:
+      - JR5J52dnzK2hgn
     extendTypes: ''
   - type: template
     baseClass: AnimatedSprite
@@ -495,7 +458,7 @@ assets:
   - type: template
     baseClass: AnimatedSprite
     name: PlayerShip_02_Blue
-    depth: 0
+    depth: 1
     texture: QgKWGTDCr8HWdT
     playAnimationOnStart: false
     loopAnimation: true
@@ -563,7 +526,7 @@ assets:
         lib: place
     extends:
       cgroup: ''
-    lastmod: 1718556518726
+    lastmod: 1718560087205
     uid: b2HjJKB6T9r7WM
     behaviors: []
     extendTypes: ''
@@ -639,7 +602,7 @@ assets:
         bindings: {}
     tiles: []
     extends: {}
-    lastmod: 1718557261932
+    lastmod: 1718560969078
     events:
       - eventKey: OnRoomStart
         code: |-
@@ -667,7 +630,9 @@ assets:
         code: |-
           this.timer2 = random.range(3, 6)
 
-          templates.copy("Enemy_Red_03", random(camera.width), -100)
+          const selectedCopy = random.dice("Enemy_Red_02", "Enemy_Red_03")
+
+          templates.copy(selectedCopy, random(camera.width), -100)
         arguments:
           name: Generate Enemies
           isUi: false
@@ -813,6 +778,205 @@ assets:
     extendTypes: ''
     lastmod: 1718556159950
     uid: 1b9c95zrCknK7b
+  - lastmod: 1718561963337
+    type: texture
+    name: Enemy_Red_02
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 52
+      - 42
+    marginx: 0
+    marginy: 0
+    imgWidth: 104
+    imgHeight: 84
+    width: 104
+    height: 84
+    offx: 0
+    offy: 0
+    origname: iN4nfhPbWpCmN2w.png
+    shape: strip
+    left: 52
+    right: 52
+    top: 42
+    bottom: 42
+    uid: N4nfhPbWpCmN2w
+    padding: 1
+    isBlank: false
+    source: >-
+      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+      Space Shooter/Enemy_Red_02.png
+    stripPoints:
+      - x: -0.16666666666666666
+        'y': -40.333333333333336
+      - x: 16.666666666666668
+        'y': -31.666666666666664
+      - x: 32.66666666666667
+        'y': -15.333333333333334
+      - x: 49.33333333333333
+        'y': -14.666666666666664
+      - x: 49.00000000000001
+        'y': -7.16666666666667
+      - x: 23
+        'y': 40
+      - x: -0.3333333333333326
+        'y': 39.66666666666667
+      - x: -23.667853004110224
+        'y': 39.90277530624145
+      - x: -49.47110038584903
+        'y': -7.371814792470532
+      - x: -49.77318096130948
+        'y': -14.873138571447193
+      - x: -33.10388120421931
+        'y': -15.47035530806435
+      - x: -17.035964832328563
+        'y': -31.73688048228957
+    closedStrip: true
+    symmetryStrip: true
+  - lastmod: 1718561473582
+    type: texture
+    name: Laser_Red_08
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 24
+      - 23
+    marginx: 0
+    marginy: 0
+    imgWidth: 48
+    imgHeight: 46
+    width: 48
+    height: 46
+    offx: 0
+    offy: 0
+    origname: izzk36JPzr4KDWN.png
+    shape: circle
+    left: 24
+    right: 24
+    top: 23
+    bottom: 23
+    uid: zzk36JPzr4KDWN
+    padding: 1
+    isBlank: false
+    source: >-
+      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+      Space Shooter/Laser_Red_08.png
+    r: 23
+  - type: template
+    baseClass: AnimatedSprite
+    name: Laser_Red_08
+    depth: 0
+    texture: zzk36JPzr4KDWN
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
+    events:
+      - eventKey: OnCreate
+        code: this.angle = random.deg()
+        arguments: {}
+        lib: core
+      - eventKey: OnStep
+        code: this.angle -= 240 * u.time
+        arguments: {}
+        lib: core
+    extends:
+      cgroup: Hostile
+    lastmod: 1718561345135
+    uid: FRb97Q7R7QK1hB
+    behaviors:
+      - JR5J52dnzK2hgn
+    extendTypes: ''
+  - type: template
+    baseClass: AnimatedSprite
+    name: Enemy_Red_02
+    depth: 1
+    texture: N4nfhPbWpCmN2w
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
+    events:
+      - eventKey: OnCreate
+        code: |-
+          this.score_on_kill = 100
+          this.shoot_label = "Laser_Red_08"
+        arguments: {}
+        lib: core
+    extends:
+      cgroup: Hostile
+    lastmod: 1718561983398
+    uid: NTLT3wJpBdFgJF
+    behaviors:
+      - tFn59wC2D4JHTN
+    extendTypes: ''
+  - type: behavior
+    name: Enemies Behavior
+    behaviorType: template
+    events:
+      - eventKey: OnCreate
+        code: |-
+          this.speed = 180
+          this.direction = random.range(70, 110)
+
+          this.timer1 = 1
+        arguments: {}
+        lib: core
+      - eventKey: OnStep
+        code: |-
+          this.move();
+
+          this.kill = this.y > camera.height + this.texture.height * 0.5
+        arguments: {}
+        lib: core
+      - eventKey: collisionTemplate
+        code: |-
+          other.kill = true
+          this.kill = true
+
+          rooms.current.score += this.score_on_kill
+        arguments:
+          template: 87KFhwDCr3CMf7
+        lib: place
+      - eventKey: Timer1
+        code: >-
+          this.timer1 = 3
+
+          templates.copy(this.shoot_label, this.x, this.y + this.texture.height
+          * 0.5)
+        arguments:
+          name: Shoot
+          isUi: false
+        lib: core
+    specification: []
+    extendTypes: ''
+    lastmod: 1718560753445
+    uid: tFn59wC2D4JHTN
+  - type: behavior
+    name: Enemy Laser Behavior
+    behaviorType: template
+    events:
+      - eventKey: OnCreate
+        code: |-
+          this.speed = 480
+          this.direction = 90
+        arguments: {}
+        lib: core
+      - eventKey: OnStep
+        code: |-
+          this.kill = this.y > camera.height + this.texture.height
+
+          this.move();
+        arguments: {}
+        lib: core
+    specification: []
+    extendTypes: ''
+    lastmod: 1718561277699
+    uid: JR5J52dnzK2hgn
 globalVars: []
 settings:
   authoring:
