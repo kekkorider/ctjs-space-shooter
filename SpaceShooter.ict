@@ -605,58 +605,50 @@ assets:
         exts: {}
         customProperties: {}
         bindings: {}
-      - x: 320
-        'y': 64
-        opacity: 1
-        tint: 16777215
-        scale:
-          x: 1
-          'y': 1
-        rotation: 0
-        uid: TKghzWnDLKcqtd
-        exts: {}
-        customProperties: {}
-        bindings: {}
-      - x: 768
-        'y': 64
-        opacity: 1
-        tint: 16777215
-        scale:
-          x: 1
-          'y': 1
-        rotation: 0
-        uid: WnN1whLhhnbRd1
-        exts: {}
-        customProperties: {}
-        bindings: {}
-      - x: 576
-        'y': 64
-        opacity: 1
-        tint: 16777215
-        scale:
-          x: 1
-          'y': 1
-        rotation: 0
-        uid: bqn933gkcnR9Dc
-        exts: {}
-        customProperties: {}
-        bindings: {}
     tiles: []
     extends: {}
-    lastmod: 1718481523984
-    events: []
+    lastmod: 1718552053286
+    events:
+      - eventKey: OnRoomStart
+        code: |-
+          this.timer1 = 0.3 // asteroids timer
+          this.timer2 = 3 // enemies timer
+        arguments: {}
+        lib: core
+      - eventKey: Timer1
+        code: >-
+          this.timer1 = random.range(0.3, 3)
+
+
+          const selectedCopy = random.dice("Meteor_Grey_Med_01",
+          "Meteor_Grey_Big_01")
+
+          templates.copy(selectedCopy, random(camera.width), -100)
+        arguments:
+          name: Generate Asteroids
+          isUi: false
+        lib: core
+      - eventKey: Timer2
+        code: |-
+          this.timer2 = random.range(3, 6)
+
+          templates.copy("Enemy_Red_03", random(camera.width), -100)
+        arguments:
+          name: Generate Enemies
+          isUi: false
+        lib: core
     behaviors: []
     extendTypes: ''
     uid: mz3rNF1R7L7j4K
 globalVars: []
 settings:
   authoring:
-    author: ''
-    site: ''
-    title: ''
+    author: Francesco Michelini
+    site: 'https://www.francescomichelini.com'
+    title: SpaceShooter
     version:
       - 0
-      - 0
+      - 1
       - 0
     versionPostfix: ''
     appId: ''
