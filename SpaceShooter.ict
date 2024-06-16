@@ -450,26 +450,8 @@ assets:
     animationFPS: 30
     visible: true
     events:
-      - eventKey: OnStep
-        lib: core
-        code: |-
-          this.angle += 100 * u.time
-
-          this.move();
-
-          this.kill = this.y > camera.height + this.texture.height
-        arguments: {}
-      - eventKey: OnCreate
-        code: |-
-          this.speed = random.range(50, 100)
-          this.direction = random.range(60, 120)
-        arguments: {}
-        lib: core
       - eventKey: collisionTemplate
         code: |-
-          other.kill = true
-          this.kill = true
-
           templates.copy("Meteor_Grey_Med_01", this.x, this.y)
           templates.copy("Meteor_Grey_Med_01", this.x, this.y)
 
@@ -479,9 +461,10 @@ assets:
         lib: place
     extends:
       cgroup: Hostile
-    lastmod: 1718554732396
+    lastmod: 1718556196085
     uid: WnN1whLhhnbRd1
-    behaviors: []
+    behaviors:
+      - 1b9c95zrCknK7b
     extendTypes: ''
   - type: template
     baseClass: AnimatedSprite
@@ -493,35 +476,17 @@ assets:
     animationFPS: 30
     visible: true
     events:
-      - eventKey: OnStep
-        lib: core
-        code: |-
-          this.angle += 100 * u.time
-
-          this.move();
-
-          this.kill = this.y > camera.height + this.texture.height
-        arguments: {}
-      - eventKey: OnCreate
-        code: |-
-          this.speed = random.range(60, 180)
-          this.direction = random.range(60, 120)
-        arguments: {}
-        lib: core
       - eventKey: collisionTemplate
-        code: |-
-          other.kill = true
-          this.kill = true
-
-          rooms.current.score += 150
+        code: rooms.current.score += 150
         arguments:
           template: 87KFhwDCr3CMf7
         lib: place
     extends:
       cgroup: Hostile
-    lastmod: 1718554739388
+    lastmod: 1718556188943
     uid: bqn933gkcnR9Dc
-    behaviors: []
+    behaviors:
+      - 1b9c95zrCknK7b
     extendTypes: ''
   - type: template
     baseClass: AnimatedSprite
@@ -549,10 +514,15 @@ assets:
 
 
           this.move()
+
+
+          this.alpha = this.invincible ? 0.5 : 1
         arguments: {}
       - eventKey: OnCreate
         code: |-
           this.moveSpeed = 480
+
+          this.invincible = false
 
           this.textureHalfWidth = this.texture.width * 0.5
           this.textureHalfHeight = this.texture.height * 0.5
@@ -565,6 +535,8 @@ assets:
         lib: core
       - eventKey: collisionCGroup
         code: |-
+          if (this.invincible) return
+
           other.kill = templates.isCopy(other)
 
           rooms.current.lives--
@@ -576,12 +548,18 @@ assets:
                   rooms.switch("Main")
               })
           }
+
+          this.invincible = true
+
+          u.wait(1000).then(() => {
+              this.invincible = false
+          })
         arguments:
           group: Hostile
         lib: place
     extends:
       cgroup: ''
-    lastmod: 1718555354386
+    lastmod: 1718556364777
     uid: b2HjJKB6T9r7WM
     behaviors: []
     extendTypes: ''
@@ -657,7 +635,7 @@ assets:
         bindings: {}
     tiles: []
     extends: {}
-    lastmod: 1718554743785
+    lastmod: 1718556249329
     events:
       - eventKey: OnRoomStart
         code: |-
@@ -801,6 +779,36 @@ assets:
     stroke:
       color: '#5D6115'
       weight: 5
+  - type: behavior
+    name: Asteroids Behavior
+    behaviorType: template
+    events:
+      - eventKey: OnCreate
+        code: |-
+          this.speed = random.range(50, 100)
+          this.direction = random.range(60, 120)
+        arguments: {}
+        lib: core
+      - eventKey: OnStep
+        code: |-
+          this.angle += 100 * u.time
+
+          this.move();
+
+          this.kill = this.y > camera.height + this.texture.height
+        arguments: {}
+        lib: core
+      - eventKey: collisionTemplate
+        code: |-
+          other.kill = true
+          this.kill = true
+        arguments:
+          template: 87KFhwDCr3CMf7
+        lib: place
+    specification: []
+    extendTypes: ''
+    lastmod: 1718556159950
+    uid: 1b9c95zrCknK7b
 globalVars: []
 settings:
   authoring:
