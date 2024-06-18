@@ -496,6 +496,14 @@ assets:
 
           this.textureHalfWidth = this.texture.width * 0.5
           this.textureHalfHeight = this.texture.height * 0.5
+
+          emitters.follow(this, "Burst Emitter", {
+              position: {
+                  x: 0,
+                  y: 40
+              },
+              depth: -1
+          })
         arguments: {}
         lib: core
       - eventKey: OnActionPress
@@ -546,7 +554,7 @@ assets:
         lib: place
     extends:
       cgroup: Player
-    lastmod: 1718562783230
+    lastmod: 1718753800628
     uid: b2HjJKB6T9r7WM
     behaviors: []
     extendTypes: ''
@@ -791,12 +799,14 @@ assets:
         code: |-
           other.kill = true
           this.kill = true
+
+          emitters.fire("Smoke Emitter", this.x, this.y)
         arguments:
           template: 87KFhwDCr3CMf7
         lib: place
     specification: []
     extendTypes: ''
-    lastmod: 1718564059701
+    lastmod: 1718752681957
     uid: 1b9c95zrCknK7b
   - lastmod: 1718561963337
     type: texture
@@ -959,6 +969,8 @@ assets:
           this.kill = true
 
           rooms.current.score += this.score_on_kill
+
+          emitters.fire("Smoke Emitter", this.x, this.y)
         arguments:
           template: 87KFhwDCr3CMf7
         lib: place
@@ -983,7 +995,7 @@ assets:
         lib: core
     specification: []
     extendTypes: ''
-    lastmod: 1718562375197
+    lastmod: 1718753321205
     uid: tFn59wC2D4JHTN
   - type: behavior
     name: Enemy Laser Behavior
@@ -1246,6 +1258,217 @@ assets:
     extendTypes: ''
     lastmod: 1718562941520
     uid: kGtLHT7pMQFGNH
+  - name: Smoke Emitter
+    uid: KtrDKC64RrjBL6
+    emitters:
+      - uid: c34mgBBH4h2ww7
+        texture: Wzq8fpt61BLhcN
+        openedTabs:
+          - texture
+          - colors
+          - velocity
+          - shape
+          - spawning
+          - rotation
+          - scaling
+        textureBehavior: textureRandom
+        animatedSingleFramerate: 30
+        settings:
+          delay: 0
+          lifetime:
+            min: 0.5
+            max: 0.9
+          frequency: 0.15
+          spawnChance: 0.55
+          particlesPerWave: 40
+          emitterLifetime: 0.2
+          maxParticles: 1000
+          maxSpeed: 0
+          pos:
+            x: 0
+            'y': 0
+          addAtBack: false
+          behaviors:
+            - type: alpha
+              config:
+                alpha:
+                  list:
+                    - value: 0.615
+                      time: 0
+                    - value: 0.18500000000000005
+                      time: 1
+                  isStepped: true
+            - type: color
+              config:
+                color:
+                  list:
+                    - value: '404040'
+                      time: 0
+                    - value: '858585'
+                      time: 1
+                  isStepped: true
+            - type: blendMode
+              config:
+                blendMode: screen
+            - type: scale
+              config:
+                scale:
+                  list:
+                    - value: 0.74
+                      time: 0
+                    - value: 0.36
+                      time: 1
+                minMult: 0.4
+            - type: moveSpeed
+              config:
+                speed:
+                  list:
+                    - value: 300
+                      time: 0
+                    - value: 112.5
+                      time: 1
+                  isStepped: true
+                minMult: 0.75
+            - type: spawnShape
+              config:
+                type: torus
+                data:
+                  x: 0
+                  'y': 0
+                  radius: 50
+                  innerRadius: 20
+                  rotation: true
+                  affectRotation: true
+            - type: rotation
+              config:
+                minStart: 0
+                maxStart: 270
+                minSpeed: 0
+                maxSpeed: 200
+                accel: 1
+        showShapeVisualizer: true
+    lastmod: 1718754519597
+    type: tandem
+  - lastmod: 1718752042130
+    type: texture
+    name: Effect_Blast
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 0
+      - 0
+    marginx: 0
+    marginy: 0
+    imgWidth: 128
+    imgHeight: 128
+    width: 128
+    height: 128
+    offx: 0
+    offy: 0
+    origname: iWzq8fpt61BLhcN.png
+    shape: rect
+    left: 0
+    right: 128
+    top: 0
+    bottom: 128
+    uid: Wzq8fpt61BLhcN
+    padding: 1
+    isBlank: false
+    source: >-
+      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+      Scribble Platformer/Effect_Blast.png
+  - name: Burst Emitter
+    uid: 4qDTD7m9mH55fp
+    emitters:
+      - uid: RMzTmL8KqKhgcb
+        texture: Wzq8fpt61BLhcN
+        openedTabs:
+          - texture
+          - velocity
+          - shape
+          - spawning
+          - rotation
+          - colors
+          - scaling
+        textureBehavior: textureRandom
+        animatedSingleFramerate: 30
+        settings:
+          delay: 0
+          lifetime:
+            min: 0.5
+            max: 0.5
+          frequency: 0.008
+          spawnChance: 1
+          particlesPerWave: 1
+          emitterLifetime: 0
+          maxParticles: 1000
+          maxSpeed: 0
+          pos:
+            x: 0
+            'y': 0
+          addAtBack: false
+          behaviors:
+            - type: alpha
+              config:
+                alpha:
+                  list:
+                    - value: 0.995
+                      time: 0
+                    - value: 0
+                      time: 1
+            - type: color
+              config:
+                color:
+                  list:
+                    - value: 4AC9FF
+                      time: 0
+                    - value: ffffff
+                      time: 1
+                  isStepped: true
+            - type: blendMode
+              config:
+                blendMode: screen
+            - type: scale
+              config:
+                scale:
+                  list:
+                    - value: 0.19000000000000009
+                      time: 0
+                    - value: 0
+                      time: 1
+                  isStepped: false
+                minMult: 0.16
+            - type: moveSpeed
+              config:
+                speed:
+                  list:
+                    - value: 487.5
+                      time: 0
+                    - value: 200
+                      time: 1
+                  isStepped: false
+                minMult: 1
+            - type: spawnShape
+              config:
+                type: torus
+                data:
+                  innerRadius: 0
+                  radius: 20
+                  x: 0
+                  'y': 0
+                  rotation: true
+            - type: rotation
+              config:
+                minStart: 88
+                maxStart: 95
+                minSpeed: 0
+                maxSpeed: 0
+                accel: 0
+        showShapeVisualizer: true
+    lastmod: 1718754433234
+    type: tandem
 globalVars: []
 settings:
   authoring:
@@ -1254,7 +1477,7 @@ settings:
     title: SpaceShooter
     version:
       - 0
-      - 1
+      - 2
       - 0
     versionPostfix: ''
     appId: ''
