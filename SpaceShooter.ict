@@ -490,6 +490,7 @@ assets:
           this.moveSpeed = 480
 
           this.invincible = false
+          this.can_shoot = true
 
           this.shield = null
           this.powerup_shield = 0
@@ -507,12 +508,19 @@ assets:
         arguments: {}
         lib: core
       - eventKey: OnActionPress
-        code: 'templates.copy("Laser_Blue_01", this.x, this.y)'
+        code: |-
+          if (!this.can_shoot) return
+
+          templates.copy("Laser_Blue_01", this.x, this.y)
+
+          sounds.play("SFX Shoot")
         arguments:
           action: Shoot
         lib: core
       - eventKey: collisionCGroup
         code: |-
+          if (this.invincible) return
+
           this.powerup_shield = Math.max(0, this.powerup_shield - 1)
 
           if (this.shield) {
@@ -530,24 +538,29 @@ assets:
               return
           }
 
-          if (this.invincible) return
-
           other.kill = templates.isCopy(other)
 
           rooms.current.lives--
 
           if (rooms.current.lives <= 0) {
+              sounds.play("SFX EnemyDie")
+              emitters.fire("Smoke Emitter", this.x, this.y)
+
               this.kill = true
               
               u.wait(1000).then(() => {
                   rooms.switch("Main")
               })
+          } else {
+              sounds.play("SFX PlayerHit")
           }
 
           this.invincible = true
+          this.can_shoot = false
 
           u.wait(1000).then(() => {
               this.invincible = false
+              this.can_shoot = true
           })
         arguments:
           group: Hostile
@@ -801,12 +814,13 @@ assets:
           this.kill = true
 
           emitters.fire("Smoke Emitter", this.x, this.y)
+          sounds.play("SFX AsteroidDie")
         arguments:
           template: 87KFhwDCr3CMf7
         lib: place
     specification: []
     extendTypes: ''
-    lastmod: 1718752681957
+    lastmod: 1718756111599
     uid: 1b9c95zrCknK7b
   - lastmod: 1718561963337
     type: texture
@@ -971,6 +985,7 @@ assets:
           rooms.current.score += this.score_on_kill
 
           emitters.fire("Smoke Emitter", this.x, this.y)
+          sounds.play("SFX EnemyDie")
         arguments:
           template: 87KFhwDCr3CMf7
         lib: place
@@ -995,7 +1010,7 @@ assets:
         lib: core
     specification: []
     extendTypes: ''
-    lastmod: 1718753321205
+    lastmod: 1718755999329
     uid: tFn59wC2D4JHTN
   - type: behavior
     name: Enemy Laser Behavior
@@ -1250,13 +1265,15 @@ assets:
                   break
           }
 
+          sounds.play("SFX Powerup")
+
           this.kill = true
         arguments:
           group: Player
         lib: place
     specification: []
     extendTypes: ''
-    lastmod: 1718562941520
+    lastmod: 1718755616953
     uid: kGtLHT7pMQFGNH
   - name: Smoke Emitter
     uid: KtrDKC64RrjBL6
@@ -1469,6 +1486,271 @@ assets:
         showShapeVisualizer: true
     lastmod: 1718754433234
     type: tandem
+  - name: SFX Shoot
+    uid: Ld1479KCdcr2CP
+    type: sound
+    lastmod: 1718755667638
+    preload: true
+    variants:
+      - uid: BKmqwgBQpWC25T
+        source: /Users/francesco/Downloads/laserShoot.wav
+    distortion:
+      enabled: false
+      min: 0
+      max: 1
+    pitch:
+      enabled: false
+      min: 0
+      max: 1
+    reverb:
+      enabled: false
+      decayMin: 2
+      decayMax: 2
+      secondsMin: 2
+      secondsMax: 3
+      reverse: false
+    volume:
+      enabled: true
+      min: 0
+      max: 0.5
+    eq:
+      enabled: false
+      bands:
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+    panning:
+      refDistance: 0.5
+      rolloffFactor: 1
+  - name: SFX Powerup
+    uid: tN857GC6R6Rm8m
+    type: sound
+    lastmod: 1718755751822
+    preload: true
+    variants:
+      - uid: wWkRd5bbTDJTFJ
+        source: /Users/francesco/Downloads/powerUp.wav
+    distortion:
+      enabled: false
+      min: 0
+      max: 1
+    pitch:
+      enabled: false
+      min: 0
+      max: 1
+    reverb:
+      enabled: false
+      decayMin: 2
+      decayMax: 2
+      secondsMin: 2
+      secondsMax: 3
+      reverse: false
+    volume:
+      enabled: false
+      min: 0
+      max: 0.5
+    eq:
+      enabled: false
+      bands:
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+    panning:
+      refDistance: 0.5
+      rolloffFactor: 1
+  - name: SFX EnemyDie
+    uid: FLBmLMLnrH5c4k
+    type: sound
+    lastmod: 1718755968847
+    preload: true
+    variants:
+      - uid: d1j54cMHqdJmCK
+        source: /Users/francesco/Downloads/enemyDie.wav
+    distortion:
+      enabled: false
+      min: 0
+      max: 1
+    pitch:
+      enabled: false
+      min: 0
+      max: 1
+    reverb:
+      enabled: false
+      decayMin: 2
+      decayMax: 2
+      secondsMin: 2
+      secondsMax: 3
+      reverse: false
+    volume:
+      enabled: false
+      min: 0
+      max: 0.5
+    eq:
+      enabled: false
+      bands:
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+    panning:
+      refDistance: 0.5
+      rolloffFactor: 1
+  - name: SFX AsteroidDie
+    uid: 6Wg91HhHjBF7Hj
+    type: sound
+    lastmod: 1718756090961
+    preload: true
+    variants:
+      - uid: mQcFm39LmQ47JP
+        source: /Users/francesco/Downloads/asteroidDie.wav
+    distortion:
+      enabled: false
+      min: 0
+      max: 1
+    pitch:
+      enabled: false
+      min: 0
+      max: 1
+    reverb:
+      enabled: false
+      decayMin: 2
+      decayMax: 2
+      secondsMin: 2
+      secondsMax: 3
+      reverse: false
+    volume:
+      enabled: false
+      min: 0
+      max: 0.5
+    eq:
+      enabled: false
+      bands:
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+    panning:
+      refDistance: 0.5
+      rolloffFactor: 1
+  - name: SFX PlayerHit
+    uid: bcwr98R2jcn42j
+    type: sound
+    lastmod: 1718756346392
+    preload: true
+    variants:
+      - uid: 821mQ8CGFPNJkB
+        source: /Users/francesco/Downloads/playerHit.wav
+    distortion:
+      enabled: false
+      min: 0
+      max: 1
+    pitch:
+      enabled: false
+      min: 0
+      max: 1
+    reverb:
+      enabled: false
+      decayMin: 2
+      decayMax: 2
+      secondsMin: 2
+      secondsMax: 3
+      reverse: false
+    volume:
+      enabled: false
+      min: 0
+      max: 0.5
+    eq:
+      enabled: false
+      bands:
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+        - min: -1
+          max: 1
+    panning:
+      refDistance: 0.5
+      rolloffFactor: 1
 globalVars: []
 settings:
   authoring:
@@ -1477,7 +1759,7 @@ settings:
     title: SpaceShooter
     version:
       - 0
-      - 2
+      - 3
       - 0
     versionPostfix: ''
     appId: ''
