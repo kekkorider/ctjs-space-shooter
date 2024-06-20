@@ -14,7 +14,8 @@ libs:
   keyboard.polyfill: {}
   pointer.polyfill: {}
   random: {}
-startroom: -1
+  tween: {}
+startroom: k7wGp9CnmDDdcL
 contentTypes: []
 actions:
   - name: Shoot
@@ -42,1715 +43,2349 @@ actions:
         multiplier: 1
 scripts: []
 assets:
-  - lastmod: 1718477736614
-    type: texture
-    name: BG_Blue
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 0
-      - 0
-    marginx: 0
-    marginy: 0
-    imgWidth: 256
-    imgHeight: 256
-    width: 256
-    height: 256
-    offx: 0
-    offy: 0
-    origname: iPkcfr4rf5C7t8k.png
-    shape: rect
-    left: 0
-    right: 256
-    top: 0
-    bottom: 256
-    uid: Pkcfr4rf5C7t8k
-    padding: 1
-    isBlank: false
-    source: >-
-      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
-      Space Shooter/BG_Blue.png
-    tiled: true
-  - lastmod: 1718477868315
-    type: texture
-    name: Enemy_Red_03
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 51
-      - 42
-    marginx: 0
-    marginy: 0
-    imgWidth: 103
-    imgHeight: 84
-    width: 103
-    height: 84
-    offx: 0
-    offy: 0
-    origname: iLfgBCJLKQk7JML.png
-    shape: strip
-    left: 51
-    right: 52
-    top: 42
-    bottom: 42
-    uid: LfgBCJLKQk7JML
-    padding: 1
-    isBlank: false
-    source: >-
-      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
-      Space Shooter/Enemy_Red_03.png
-    stripPoints:
-      - x: 9.166666666666666
-        'y': -39.5
-      - x: 15.666666666666671
-        'y': -34.333333333333336
-      - x: 24.166666666666668
-        'y': -35
-      - x: 50
-        'y': -1.5
-      - x: 37.33333333333333
-        'y': 40.666666666666664
-      - x: -36.333333333333336
-        'y': 39.666666666666664
-      - x: -50
-        'y': -1.8333333333333321
-      - x: -24.666666666666668
-        'y': -33.83333333333333
-      - x: -15.666666666666666
-        'y': -34.99999999999999
-      - x: -7.833333333333331
-        'y': -39.5
-    closedStrip: true
-  - lastmod: 1718561803521
-    type: texture
-    name: Laser_Blue_01
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 4
-      - 27
-    marginx: 0
-    marginy: 0
-    imgWidth: 9
-    imgHeight: 54
-    width: 9
-    height: 54
-    offx: 0
-    offy: 0
-    origname: icRqNgbz3qGjw2w.png
-    shape: rect
-    left: 4
-    right: 5
-    top: 27
-    bottom: 27
-    uid: cRqNgbz3qGjw2w
-    padding: 1
-    isBlank: false
-    source: >-
-      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
-      Space Shooter/Laser_Blue_01.png
-  - lastmod: 1718477883443
-    type: texture
-    name: Laser_Red_09
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 24
-      - 23
-    marginx: 0
-    marginy: 0
-    imgWidth: 48
-    imgHeight: 46
-    width: 48
-    height: 46
-    offx: 0
-    offy: 0
-    origname: iPn78W26zCfNz3m.png
-    shape: circle
-    left: 24
-    right: 24
-    top: 23
-    bottom: 23
-    uid: Pn78W26zCfNz3m
-    padding: 1
-    isBlank: false
-    source: >-
-      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
-      Space Shooter/Laser_Red_09.png
-    r: 23
-  - lastmod: 1718477913576
-    type: texture
-    name: Meteor_Grey_Big_01
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 50
-      - 42
-    marginx: 0
-    marginy: 0
-    imgWidth: 101
-    imgHeight: 84
-    width: 101
-    height: 84
-    offx: 0
-    offy: 0
-    origname: i7Cc75QFGwtgKDK.png
-    shape: strip
-    left: 50
-    right: 51
-    top: 42
-    bottom: 42
-    uid: 7Cc75QFGwtgKDK
-    padding: 1
-    isBlank: false
-    source: >-
-      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
-      Space Shooter/Meteor_Grey_Big_01.png
-    stripPoints:
-      - x: 22.25
-        'y': -39.25
-      - x: 48.5
-        'y': -1.5
-      - x: 33.25
-        'y': 31.75
-      - x: 10.5
-        'y': 27.5
-      - x: -20
-        'y': 40
-      - x: -47.75
-        'y': 10.25
-      - x: -31.75
-        'y': -39.25
-    closedStrip: true
-  - lastmod: 1718477943407
-    type: texture
-    name: Meteor_Grey_Med_01
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 21
-      - 21
-    marginx: 0
-    marginy: 0
-    imgWidth: 43
-    imgHeight: 43
-    width: 43
-    height: 43
-    offx: 0
-    offy: 0
-    origname: inbzH3pdgtzGkRr.png
-    shape: strip
-    left: 21
-    right: 22
-    top: 21
-    bottom: 22
-    uid: nbzH3pdgtzGkRr
-    padding: 1
-    isBlank: false
-    source: >-
-      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
-      Space Shooter/Meteor_Grey_Med_01.png
-    stripPoints:
-      - x: 16.75
-        'y': -17.25
-      - x: 20.5
-        'y': 7.75
-      - x: 0.25
-        'y': 20.25
-      - x: -14
-        'y': 14.25
-      - x: -19.75
-        'y': -3.25
-      - x: -8.75
-        'y': -19
-    closedStrip: true
-  - lastmod: 1718477999084
-    type: texture
-    name: PlayerShip_02_Blue
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 56
-      - 37
-    marginx: 0
-    marginy: 0
-    imgWidth: 112
-    imgHeight: 75
-    width: 112
-    height: 75
-    offx: 0
-    offy: 0
-    origname: iQgKWGTDCr8HWdT.png
-    shape: strip
-    left: 56
-    right: 56
-    top: 37
-    bottom: 38
-    uid: QgKWGTDCr8HWdT
-    padding: 1
-    isBlank: false
-    source: >-
-      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
-      Space Shooter/PlayerShip_02_Blue.png
-    stripPoints:
-      - x: 0
-        'y': -38
-      - x: 9.25
-        'y': -17.75
-      - x: 55
-        'y': 7.75
-      - x: 36.75
-        'y': 34.5
-      - x: 16.25
-        'y': 29
-      - x: 10.5
-        'y': 36.25
-      - x: -11.25
-        'y': 36.5
-      - x: -18.25
-        'y': 26.5
-      - x: -36.5
-        'y': 33.25
-      - x: -53.5
-        'y': 7.5
-      - x: -10.25
-        'y': -16.5
-    closedStrip: true
-  - type: template
-    baseClass: AnimatedSprite
-    name: Enemy_Red_03
-    depth: 1
-    texture: LfgBCJLKQk7JML
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnCreate
-        code: |-
-          this.score_on_kill = 100
-          this.shoot_label = "Laser_Red_09"
-        arguments: {}
-        lib: core
-    extends:
-      cgroup: Hostile
-    lastmod: 1718560471985
-    uid: TKghzWnDLKcqtd
-    behaviors:
-      - tFn59wC2D4JHTN
-    extendTypes: ''
-  - type: template
-    baseClass: AnimatedSprite
-    name: Laser_Blue_01
-    depth: 0
-    texture: cRqNgbz3qGjw2w
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnStep
-        lib: core
-        code: |-
-          this.kill = this.y < -this.texture.height
+  - type: folder
+    uid: R3wD8WPg7Gjw5H
+    colorClass: warning
+    icon: folder
+    name: Rooms
+    lastmod: 1718836848890
+    entries:
+      - type: room
+        oncreate: ''
+        onstep: ''
+        ondraw: ''
+        onleave: ''
+        gridX: 64
+        gridY: 64
+        diagonalGrid: true
+        disableGrid: true
+        simulate: true
+        width: 864
+        height: 486
+        restrictCamera: false
+        restrictMaxX: 1280
+        restrictMinX: 1280
+        restrictMaxY: 720
+        restrictMinY: 720
+        isUi: false
+        name: Main
+        backgroundColor: '#000000'
+        follow: -1
+        backgrounds:
+          - depth: -5
+            texture: Pkcfr4rf5C7t8k
+            shiftX: 0
+            shiftY: 0
+            parallaxX: 1
+            parallaxY: 1
+            movementX: 0
+            movementY: 20
+            scaleX: 1
+            scaleY: 1
+            repeat: repeat
+        copies:
+          - x: 432.1015625
+            'y': 411.53125
+            opacity: 1
+            tint: 16777215
+            scale:
+              x: 1
+              'y': 1
+            rotation: 0
+            uid: b2HjJKB6T9r7WM
+            exts: {}
+            customProperties: {}
+            bindings: {}
+          - x: 24
+            'y': 12
+            opacity: 1
+            tint: 16777215
+            scale:
+              x: 1
+              'y': 1
+            rotation: 0
+            uid: M45TqgDPP2QJ4M
+            exts: {}
+            customProperties: {}
+            bindings: {}
+          - x: 700
+            'y': 12
+            opacity: 1
+            tint: 16777215
+            scale:
+              x: 1
+              'y': 1
+            rotation: 0
+            uid: kB17B5HTMt1zhb
+            exts: {}
+            customProperties: {}
+            bindings: {}
+          - x: 217.13671875
+            'y': 558.9921875
+            opacity: 1
+            tint: 16777215
+            scale:
+              x: 0.5
+              'y': 0.5
+            rotation: 0
+            uid: 5Lr85Pc7bM5JG6
+            exts: {}
+            customProperties: {}
+            bindings: {}
+          - x: 527.3125
+            'y': 558.921875
+            opacity: 1
+            tint: 16777215
+            scale:
+              x: 0.5
+              'y': 0.5
+            rotation: 0
+            uid: 1w1qKwrQNQqjrm
+            exts: {}
+            customProperties: {}
+            bindings: {}
+        tiles: []
+        extends: {}
+        lastmod: 1718877490465
+        events:
+          - eventKey: OnRoomStart
+            code: |-
+              this.timer1 = 0.3 // asteroids timer
+              this.timer2 = 3 // enemies timer
 
-          this.move();
-        arguments: {}
-      - eventKey: OnCreate
-        code: |-
-          this.speed = 1080
-          this.direction = 270
-        arguments: {}
-        lib: core
-    extends:
-      cgroup: ''
-    lastmod: 1718480720075
-    uid: 87KFhwDCr3CMf7
-    behaviors: []
-    extendTypes: ''
-  - type: template
-    baseClass: AnimatedSprite
-    name: Laser_Red_09
-    depth: 0
-    texture: Pn78W26zCfNz3m
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnStep
-        lib: core
-        code: this.angle -= 240 * u.time
-        arguments: {}
-      - eventKey: OnCreate
-        code: this.angle = random.deg()
-        arguments: {}
-        lib: core
-    extends:
-      cgroup: Hostile
-    lastmod: 1718561277668
-    uid: BrH4zLN32nQ4nT
-    behaviors:
-      - JR5J52dnzK2hgn
-    extendTypes: ''
-  - type: template
-    baseClass: AnimatedSprite
-    name: Meteor_Grey_Big_01
-    depth: 0
-    texture: 7Cc75QFGwtgKDK
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: collisionTemplate
-        code: |-
-          templates.copy("Meteor_Grey_Med_01", this.x, this.y)
-          templates.copy("Meteor_Grey_Med_01", this.x, this.y)
-
-          rooms.current.score += 100
-        arguments:
-          template: 87KFhwDCr3CMf7
-        lib: place
-    extends:
-      cgroup: Hostile
-    lastmod: 1718556196085
-    uid: WnN1whLhhnbRd1
-    behaviors:
-      - 1b9c95zrCknK7b
-    extendTypes: ''
-  - type: template
-    baseClass: AnimatedSprite
-    name: Meteor_Grey_Med_01
-    depth: 0
-    texture: nbzH3pdgtzGkRr
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: collisionTemplate
-        code: rooms.current.score += 150
-        arguments:
-          template: 87KFhwDCr3CMf7
-        lib: place
-    extends:
-      cgroup: Hostile
-    lastmod: 1718556188943
-    uid: bqn933gkcnR9Dc
-    behaviors:
-      - 1b9c95zrCknK7b
-    extendTypes: ''
-  - type: template
-    baseClass: AnimatedSprite
-    name: PlayerShip_02_Blue
-    depth: 1
-    texture: QgKWGTDCr8HWdT
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnStep
-        lib: core
-        code: >-
-          this.hspeed = this.moveSpeed * actions.MoveX.value
-
-          this.vspeed = this.moveSpeed * actions.MoveY.value
+              this.score = 0
+              this.lives = 3
+            arguments: {}
+            lib: core
+          - eventKey: Timer1
+            code: >-
+              this.timer1 = random.range(0.3, 3)
 
 
-          this.x = Math.max(this.textureHalfWidth, Math.min(this.x, camera.width
-          - this.textureHalfWidth))
+              const selectedCopy = random.dice("Meteor_Grey_Med_01",
+              "Meteor_Grey_Big_01")
 
-          this.y = Math.max(this.textureHalfHeight, Math.min(this.y,
-          camera.height - this.textureHalfHeight))
+              templates.copy(selectedCopy, random(camera.width), -100)
+            arguments:
+              name: Generate Asteroids
+              isUi: false
+            lib: core
+          - eventKey: Timer2
+            code: |-
+              this.timer2 = random.range(3, 6)
 
+              const selectedCopy = random.dice("Enemy_Red_02", "Enemy_Red_03")
 
-          this.move()
-
-
-          this.alpha = this.invincible ? 0.5 : 1
-        arguments: {}
-      - eventKey: OnCreate
-        code: |-
-          this.moveSpeed = 480
-
-          this.invincible = false
-          this.can_shoot = true
-
-          this.shield = null
-          this.powerup_shield = 0
-
-          this.textureHalfWidth = this.texture.width * 0.5
-          this.textureHalfHeight = this.texture.height * 0.5
-
-          emitters.follow(this, "Burst Emitter", {
-              position: {
-                  x: 0,
-                  y: 40
-              },
-              depth: -1
-          })
-        arguments: {}
-        lib: core
-      - eventKey: OnActionPress
-        code: |-
-          if (!this.can_shoot) return
-
-          templates.copy("Laser_Blue_01", this.x, this.y)
-
-          sounds.play("SFX Shoot")
-        arguments:
-          action: Shoot
-        lib: core
-      - eventKey: collisionCGroup
-        code: |-
-          if (this.invincible) return
-
-          this.powerup_shield = Math.max(0, this.powerup_shield - 1)
-
-          if (this.shield) {
-              other.kill = true
-              
-              this.powerup_shield = Math.max(0, this.powerup_shield - 1)
-              this.removeChild(this.shield)
-
-              if (this.powerup_shield === 0) {
-                  this.shield = null
-              } else {
-                  this.shield = templates.copy(`Shield_0${this.powerup_shield}`, 0, 0)
+              templates.copy(selectedCopy, random(camera.width), -100)
+            arguments:
+              name: Generate Enemies
+              isUi: false
+            lib: core
+          - eventKey: Timer3
+            code: >-
+              for (const item of rooms.current.children) {
+                  console.log(item.template)
               }
 
-              return
-          }
 
-          other.kill = templates.isCopy(other)
+              const restartButton = rooms.current.children.find(child =>
+              child.template === 'ButtonRestart')
 
-          rooms.current.lives--
+              const backButton = rooms.current.children.find(child =>
+              child.template === 'ButtonBackToMain')
 
-          if (rooms.current.lives <= 0) {
-              sounds.play("SFX EnemyDie")
+
+              restartButton.x = restartButton.finalX
+
+              backButton.x = backButton.finalX
+
+
+              tween.value({
+                  from: restartButton.finalY + 10,
+                  to: restartButton.finalY,
+                  duration: 400,
+                  curve: tween.easeOutCubic
+              }, newValue => {
+                  restartButton.y = newValue
+              })
+
+
+              u.wait(70).then(() => {
+                  tween.value({
+                      from: backButton.finalY + 10,
+                      to: backButton.finalY,
+                      duration: 400,
+                      curve: tween.easeOutCirc
+                  }, newValue => {
+                      backButton.y = newValue
+                  })
+              })
+            arguments:
+              name: Game Over
+              isUi: false
+            lib: core
+        behaviors: []
+        extendTypes: ''
+        uid: mz3rNF1R7L7j4K
+      - type: room
+        oncreate: ''
+        onstep: ''
+        ondraw: ''
+        onleave: ''
+        gridX: 64
+        gridY: 64
+        diagonalGrid: false
+        disableGrid: true
+        simulate: true
+        width: 864
+        height: 486
+        restrictCamera: false
+        restrictMaxX: 1280
+        restrictMinX: 1280
+        restrictMaxY: 720
+        restrictMinY: 720
+        isUi: false
+        name: Main Menu
+        backgroundColor: '#000000'
+        follow: -1
+        backgrounds:
+          - depth: -5
+            texture: Pkcfr4rf5C7t8k
+            shiftX: 0
+            shiftY: 0
+            parallaxX: 1
+            parallaxY: 1
+            movementX: 0
+            movementY: 20
+            scaleX: 1
+            scaleY: 1
+            repeat: repeat
+        copies:
+          - x: 192
+            'y': 128
+            opacity: 1
+            tint: 16777215
+            scale:
+              x: 1
+              'y': 1
+            rotation: 0
+            uid: gQrqN2dbjmng62
+            exts: {}
+            customProperties: {}
+            bindings: {}
+          - x: 432
+            'y': 320
+            opacity: 1
+            tint: 16777215
+            scale:
+              x: 0.5
+              'y': 0.5
+            rotation: 0
+            uid: MkQ2jrT8Lp9mHH
+            exts: {}
+            customProperties: {}
+            bindings: {}
+        tiles: []
+        extends: {}
+        lastmod: 1718877214359
+        events: []
+        behaviors: []
+        extendTypes: ''
+        uid: k7wGp9CnmDDdcL
+  - type: folder
+    uid: c5w29pBHLpkCq4
+    colorClass: warning
+    icon: texture
+    name: Textures
+    lastmod: 1718836947561
+    entries:
+      - lastmod: 1718477736614
+        type: texture
+        name: BG_Blue
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 0
+          - 0
+        marginx: 0
+        marginy: 0
+        imgWidth: 256
+        imgHeight: 256
+        width: 256
+        height: 256
+        offx: 0
+        offy: 0
+        origname: iPkcfr4rf5C7t8k.png
+        shape: rect
+        left: 0
+        right: 256
+        top: 0
+        bottom: 256
+        uid: Pkcfr4rf5C7t8k
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/BG_Blue.png
+        tiled: true
+      - lastmod: 1718752042130
+        type: texture
+        name: Effect_Blast
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 0
+          - 0
+        marginx: 0
+        marginy: 0
+        imgWidth: 128
+        imgHeight: 128
+        width: 128
+        height: 128
+        offx: 0
+        offy: 0
+        origname: iWzq8fpt61BLhcN.png
+        shape: rect
+        left: 0
+        right: 128
+        top: 0
+        bottom: 128
+        uid: Wzq8fpt61BLhcN
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Scribble Platformer/Effect_Blast.png
+      - lastmod: 1718561963337
+        type: texture
+        name: Enemy_Red_02
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 52
+          - 42
+        marginx: 0
+        marginy: 0
+        imgWidth: 104
+        imgHeight: 84
+        width: 104
+        height: 84
+        offx: 0
+        offy: 0
+        origname: iN4nfhPbWpCmN2w.png
+        shape: strip
+        left: 52
+        right: 52
+        top: 42
+        bottom: 42
+        uid: N4nfhPbWpCmN2w
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/Enemy_Red_02.png
+        stripPoints:
+          - x: -0.16666666666666666
+            'y': -40.333333333333336
+          - x: 16.666666666666668
+            'y': -31.666666666666664
+          - x: 32.66666666666667
+            'y': -15.333333333333334
+          - x: 49.33333333333333
+            'y': -14.666666666666664
+          - x: 49.00000000000001
+            'y': -7.16666666666667
+          - x: 23
+            'y': 40
+          - x: -0.3333333333333326
+            'y': 39.66666666666667
+          - x: -23.667853004110224
+            'y': 39.90277530624145
+          - x: -49.47110038584903
+            'y': -7.371814792470532
+          - x: -49.77318096130948
+            'y': -14.873138571447193
+          - x: -33.10388120421931
+            'y': -15.47035530806435
+          - x: -17.035964832328563
+            'y': -31.73688048228957
+        closedStrip: true
+        symmetryStrip: true
+      - lastmod: 1718477868315
+        type: texture
+        name: Enemy_Red_03
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 51
+          - 42
+        marginx: 0
+        marginy: 0
+        imgWidth: 103
+        imgHeight: 84
+        width: 103
+        height: 84
+        offx: 0
+        offy: 0
+        origname: iLfgBCJLKQk7JML.png
+        shape: strip
+        left: 51
+        right: 52
+        top: 42
+        bottom: 42
+        uid: LfgBCJLKQk7JML
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/Enemy_Red_03.png
+        stripPoints:
+          - x: 9.166666666666666
+            'y': -39.5
+          - x: 15.666666666666671
+            'y': -34.333333333333336
+          - x: 24.166666666666668
+            'y': -35
+          - x: 50
+            'y': -1.5
+          - x: 37.33333333333333
+            'y': 40.666666666666664
+          - x: -36.333333333333336
+            'y': 39.666666666666664
+          - x: -50
+            'y': -1.8333333333333321
+          - x: -24.666666666666668
+            'y': -33.83333333333333
+          - x: -15.666666666666666
+            'y': -34.99999999999999
+          - x: -7.833333333333331
+            'y': -39.5
+        closedStrip: true
+      - lastmod: 1718561803521
+        type: texture
+        name: Laser_Blue_01
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 4
+          - 27
+        marginx: 0
+        marginy: 0
+        imgWidth: 9
+        imgHeight: 54
+        width: 9
+        height: 54
+        offx: 0
+        offy: 0
+        origname: icRqNgbz3qGjw2w.png
+        shape: rect
+        left: 4
+        right: 5
+        top: 27
+        bottom: 27
+        uid: cRqNgbz3qGjw2w
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/Laser_Blue_01.png
+      - lastmod: 1718561473582
+        type: texture
+        name: Laser_Red_08
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 24
+          - 23
+        marginx: 0
+        marginy: 0
+        imgWidth: 48
+        imgHeight: 46
+        width: 48
+        height: 46
+        offx: 0
+        offy: 0
+        origname: izzk36JPzr4KDWN.png
+        shape: circle
+        left: 24
+        right: 24
+        top: 23
+        bottom: 23
+        uid: zzk36JPzr4KDWN
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/Laser_Red_08.png
+        r: 23
+      - lastmod: 1718477883443
+        type: texture
+        name: Laser_Red_09
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 24
+          - 23
+        marginx: 0
+        marginy: 0
+        imgWidth: 48
+        imgHeight: 46
+        width: 48
+        height: 46
+        offx: 0
+        offy: 0
+        origname: iPn78W26zCfNz3m.png
+        shape: circle
+        left: 24
+        right: 24
+        top: 23
+        bottom: 23
+        uid: Pn78W26zCfNz3m
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/Laser_Red_09.png
+        r: 23
+      - lastmod: 1718477913576
+        type: texture
+        name: Meteor_Grey_Big_01
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 50
+          - 42
+        marginx: 0
+        marginy: 0
+        imgWidth: 101
+        imgHeight: 84
+        width: 101
+        height: 84
+        offx: 0
+        offy: 0
+        origname: i7Cc75QFGwtgKDK.png
+        shape: strip
+        left: 50
+        right: 51
+        top: 42
+        bottom: 42
+        uid: 7Cc75QFGwtgKDK
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/Meteor_Grey_Big_01.png
+        stripPoints:
+          - x: 22.25
+            'y': -39.25
+          - x: 48.5
+            'y': -1.5
+          - x: 33.25
+            'y': 31.75
+          - x: 10.5
+            'y': 27.5
+          - x: -20
+            'y': 40
+          - x: -47.75
+            'y': 10.25
+          - x: -31.75
+            'y': -39.25
+        closedStrip: true
+      - lastmod: 1718477943407
+        type: texture
+        name: Meteor_Grey_Med_01
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 21
+          - 21
+        marginx: 0
+        marginy: 0
+        imgWidth: 43
+        imgHeight: 43
+        width: 43
+        height: 43
+        offx: 0
+        offy: 0
+        origname: inbzH3pdgtzGkRr.png
+        shape: strip
+        left: 21
+        right: 22
+        top: 21
+        bottom: 22
+        uid: nbzH3pdgtzGkRr
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/Meteor_Grey_Med_01.png
+        stripPoints:
+          - x: 16.75
+            'y': -17.25
+          - x: 20.5
+            'y': 7.75
+          - x: 0.25
+            'y': 20.25
+          - x: -14
+            'y': 14.25
+          - x: -19.75
+            'y': -3.25
+          - x: -8.75
+            'y': -19
+        closedStrip: true
+      - lastmod: 1718477999084
+        type: texture
+        name: PlayerShip_02_Blue
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 56
+          - 37
+        marginx: 0
+        marginy: 0
+        imgWidth: 112
+        imgHeight: 75
+        width: 112
+        height: 75
+        offx: 0
+        offy: 0
+        origname: iQgKWGTDCr8HWdT.png
+        shape: strip
+        left: 56
+        right: 56
+        top: 37
+        bottom: 38
+        uid: QgKWGTDCr8HWdT
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/PlayerShip_02_Blue.png
+        stripPoints:
+          - x: 0
+            'y': -38
+          - x: 9.25
+            'y': -17.75
+          - x: 55
+            'y': 7.75
+          - x: 36.75
+            'y': 34.5
+          - x: 16.25
+            'y': 29
+          - x: 10.5
+            'y': 36.25
+          - x: -11.25
+            'y': 36.5
+          - x: -18.25
+            'y': 26.5
+          - x: -36.5
+            'y': 33.25
+          - x: -53.5
+            'y': 7.5
+          - x: -10.25
+            'y': -16.5
+        closedStrip: true
+      - lastmod: 1718562551508
+        type: texture
+        name: Powerup_Green_Shield
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 17
+          - 16
+        marginx: 0
+        marginy: 0
+        imgWidth: 34
+        imgHeight: 33
+        width: 34
+        height: 33
+        offx: 0
+        offy: 0
+        origname: i8p6nPWcJw71DJ6.png
+        shape: rect
+        left: 17
+        right: 17
+        top: 16
+        bottom: 17
+        uid: 8p6nPWcJw71DJ6
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/Powerup_Green_Shield.png
+      - lastmod: 1718564775526
+        type: texture
+        name: Shield_01
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 66
+          - 54
+        marginx: 0
+        marginy: 0
+        imgWidth: 133
+        imgHeight: 108
+        width: 133
+        height: 108
+        offx: 0
+        offy: 0
+        origname: iRdBb52TLjfb27B.png
+        shape: rect
+        left: 66
+        right: 67
+        top: 54
+        bottom: 54
+        uid: RdBb52TLjfb27B
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/Shield_01.png
+        r: 54
+      - lastmod: 1718564780785
+        type: texture
+        name: Shield_02
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 71
+          - 59
+        marginx: 0
+        marginy: 0
+        imgWidth: 143
+        imgHeight: 119
+        width: 143
+        height: 119
+        offx: 0
+        offy: 0
+        origname: iTkKBzqML3tk9J9.png
+        shape: rect
+        left: 71
+        right: 72
+        top: 59
+        bottom: 60
+        uid: TkKBzqML3tk9J9
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/Shield_02.png
+      - lastmod: 1718564791574
+        type: texture
+        name: Shield_03
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 72
+          - 68
+        marginx: 0
+        marginy: 0
+        imgWidth: 144
+        imgHeight: 137
+        width: 144
+        height: 137
+        offx: 0
+        offy: 0
+        origname: iMwT67gftJwLKJd.png
+        shape: rect
+        left: 72
+        right: 72
+        top: 68
+        bottom: 69
+        uid: MwT67gftJwLKJd
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/Shield_03.png
+      - lastmod: 1718867979912
+        type: texture
+        name: Speed
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 3
+          - 54
+        marginx: 0
+        marginy: 0
+        imgWidth: 7
+        imgHeight: 108
+        width: 7
+        height: 108
+        offx: 0
+        offy: 0
+        origname: i9d3bDw2Bq7GW6G.png
+        shape: rect
+        left: 3
+        right: 4
+        top: 54
+        bottom: 54
+        uid: 9d3bDw2Bq7GW6G
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/Speed.png
+      - lastmod: 1718870009062
+        type: texture
+        name: ButtonStart
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 222
+          - 39
+        marginx: 0
+        marginy: 0
+        imgWidth: 444
+        imgHeight: 78
+        width: 444
+        height: 78
+        offx: 0
+        offy: 0
+        origname: i3k26JHm5tfdWwH.png
+        shape: rect
+        left: 222
+        right: 222
+        top: 39
+        bottom: 39
+        uid: 3k26JHm5tfdWwH
+        padding: 1
+        isBlank: false
+        source: /Users/francesco/Desktop/Button_Start.png
+      - lastmod: 1718875297859
+        type: texture
+        name: ButtonBackToMain
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 222
+          - 39
+        marginx: 0
+        marginy: 0
+        imgWidth: 444
+        imgHeight: 78
+        width: 444
+        height: 78
+        offx: 0
+        offy: 0
+        origname: iMPtff5tdMFgwWL.png
+        shape: rect
+        left: 222
+        right: 222
+        top: 39
+        bottom: 39
+        uid: MPtff5tdMFgwWL
+        padding: 1
+        isBlank: false
+        source: /Users/francesco/Desktop/ButtonBackToMain.png
+      - lastmod: 1718872051583
+        type: texture
+        name: ButtonRestart
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 222
+          - 39
+        marginx: 0
+        marginy: 0
+        imgWidth: 444
+        imgHeight: 78
+        width: 444
+        height: 78
+        offx: 0
+        offy: 0
+        origname: igMRjbpPrmMnfFH.png
+        shape: rect
+        left: 222
+        right: 222
+        top: 39
+        bottom: 39
+        uid: gMRjbpPrmMnfFH
+        padding: 1
+        isBlank: false
+        source: /Users/francesco/Desktop/ButtonRestart.png
+      - lastmod: 1718872869650
+        type: texture
+        name: Laser_Red_14
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 6
+          - 28
+        marginx: 0
+        marginy: 0
+        imgWidth: 13
+        imgHeight: 57
+        width: 13
+        height: 57
+        offx: 0
+        offy: 0
+        origname: iPLDJJW71WGqzRK.png
+        shape: rect
+        left: 6
+        right: 7
+        top: 28
+        bottom: 29
+        uid: PLDJJW71WGqzRK
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/Laser_Red_14.png
+      - lastmod: 1718873426743
+        type: texture
+        name: ExplosionParticle
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 0
+          - 0
+        marginx: 0
+        marginy: 0
+        imgWidth: 51
+        imgHeight: 5
+        width: 51
+        height: 5
+        offx: 0
+        offy: 0
+        origname: i3CqLC3bHLzCz6N.png
+        shape: rect
+        left: 0
+        right: 51
+        top: 0
+        bottom: 5
+        uid: 3CqLC3bHLzCz6N
+        padding: 1
+        isBlank: false
+        source: /Users/francesco/Desktop/ExplosionParticle.png
+  - type: folder
+    uid: kwkRhmpC5Ww7Bp
+    colorClass: error
+    icon: help-circle
+    name: Behaviors
+    lastmod: 1718837128442
+    entries:
+      - type: behavior
+        name: Asteroids Behavior
+        behaviorType: template
+        events:
+          - eventKey: OnCreate
+            code: |-
+              this.speed = random.range(50, 100)
+              this.direction = random.range(60, 120)
+            arguments: {}
+            lib: core
+          - eventKey: OnStep
+            code: |-
+              this.angle += 100 * u.time
+
+              this.move();
+
+              this.kill = this.y > camera.height + this.texture.height
+            arguments: {}
+            lib: core
+          - eventKey: collisionTemplate
+            code: |-
+              other.kill = true
+              this.kill = true
+
               emitters.fire("Smoke Emitter", this.x, this.y)
+              sounds.play("SFX AsteroidDie")
+            arguments:
+              template: 87KFhwDCr3CMf7
+            lib: place
+        specification: []
+        extendTypes: ''
+        lastmod: 1718756111599
+        uid: 1b9c95zrCknK7b
+      - type: behavior
+        name: Enemies Behavior
+        behaviorType: template
+        events:
+          - eventKey: OnCreate
+            code: |-
+              this.speed = 180
+              this.direction = random.range(70, 110)
+
+              this.timer1 = 1
+            arguments: {}
+            lib: core
+          - eventKey: OnStep
+            code: |-
+              this.move();
+
+              this.kill = this.y > camera.height + this.texture.height * 0.5
+            arguments: {}
+            lib: core
+          - eventKey: collisionTemplate
+            code: |-
+              other.kill = true
+              this.kill = true
+
+              rooms.current.score += this.score_on_kill
+
+              emitters.fire("Smoke Emitter", this.x, this.y)
+              sounds.play("SFX EnemyDie")
+            arguments:
+              template: 87KFhwDCr3CMf7
+            lib: place
+          - eventKey: Timer1
+            code: >-
+              this.timer1 = 3
+
+              templates.copy(this.shoot_label, this.x, this.y +
+              this.texture.height * 0.5)
+            arguments:
+              name: Shoot
+              isUi: false
+            lib: core
+          - eventKey: OnDestroy
+            code: |-
+              const dropPowerUp = random.dice(0, 1)
+
+              if (!dropPowerUp) return
+
+              templates.copy("Powerup_Green_Shield", this.x, this.y)
+            arguments: {}
+            lib: core
+        specification: []
+        extendTypes: ''
+        lastmod: 1718755999329
+        uid: tFn59wC2D4JHTN
+      - type: behavior
+        name: Enemy Laser Behavior
+        behaviorType: template
+        events:
+          - eventKey: OnCreate
+            code: |-
+              this.speed = 480
+              this.direction = 90
+            arguments: {}
+            lib: core
+          - eventKey: OnStep
+            code: |-
+              this.kill = this.y > camera.height + this.texture.height
+
+              this.move();
+            arguments: {}
+            lib: core
+        specification: []
+        extendTypes: ''
+        lastmod: 1718561277699
+        uid: JR5J52dnzK2hgn
+      - type: behavior
+        name: Powerup Behavior
+        behaviorType: template
+        events:
+          - eventKey: OnCreate
+            code: |-
+              this.speed = 80
+              this.direction = 90
+            arguments: {}
+            lib: core
+          - eventKey: OnStep
+            code: this.kill = this.y > camera.height + 80
+            arguments: {}
+            lib: core
+          - eventKey: collisionCGroup
+            code: |-
+              switch (this.powerup_name) {
+                  case "Shield":
+                      other.powerup_shield = Math.min(3, other.powerup_shield + 1)
+                      other.powerup_shield === 3 && (rooms.current.score += 1000)
+
+                      other.shield && other.removeChild(other.shield)
+
+                      other.shield = templates.copy(`Shield_0${other.powerup_shield}`, 0, 0)
+
+                      other.addChild(other.shield)
+                      break
+              }
+
+              sounds.play("SFX Powerup")
 
               this.kill = true
-              
-              u.wait(1000).then(() => {
-                  rooms.switch("Main")
+            arguments:
+              group: Player
+            lib: place
+        specification: []
+        extendTypes: ''
+        lastmod: 1718755616953
+        uid: kGtLHT7pMQFGNH
+      - type: behavior
+        name: Button Behavior
+        behaviorType: template
+        events:
+          - eventKey: OnPointerEnter
+            code: |-
+              tween.add({
+                  obj: this.scale,
+                  fields: {
+                      x: 0.55,
+                      y: 0.55,
+                  },
+                  duration: 250,
+                  isUi: true
               })
-          } else {
-              sounds.play("SFX PlayerHit")
-          }
+            arguments: {}
+            lib: core
+          - eventKey: OnPointerLeave
+            code: |-
+              tween.add({
+                  obj: this.scale,
+                  fields: {
+                      x: 0.5,
+                      y: 0.5,
+                  },
+                  duration: 250,
+                  isUi: true
+              })
+            arguments: {}
+            lib: core
+        specification:
+          - type: number
+            name: finalX
+            readableName: Final X
+            required: true
+            array: false
+            fixedLength: 0
+          - type: number
+            name: finalY
+            readableName: Final Y
+            required: true
+            array: false
+            fixedLength: 0
+        extendTypes: ''
+        lastmod: 1718876409993
+        uid: Gq756PDKHMBn7G
+  - type: folder
+    uid: Tndb6KP99g8Pcj
+    colorClass: text
+    icon: headphones
+    name: Sound
+    lastmod: 1718837164691
+    entries:
+      - name: SFX AsteroidDie
+        uid: 6Wg91HhHjBF7Hj
+        type: sound
+        lastmod: 1718756090961
+        preload: true
+        variants:
+          - uid: mQcFm39LmQ47JP
+            source: /Users/francesco/Downloads/asteroidDie.wav
+        distortion:
+          enabled: false
+          min: 0
+          max: 1
+        pitch:
+          enabled: false
+          min: 0
+          max: 1
+        reverb:
+          enabled: false
+          decayMin: 2
+          decayMax: 2
+          secondsMin: 2
+          secondsMax: 3
+          reverse: false
+        volume:
+          enabled: false
+          min: 0
+          max: 0.5
+        eq:
+          enabled: false
+          bands:
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+        panning:
+          refDistance: 0.5
+          rolloffFactor: 1
+      - name: SFX EnemyDie
+        uid: FLBmLMLnrH5c4k
+        type: sound
+        lastmod: 1718755968847
+        preload: true
+        variants:
+          - uid: d1j54cMHqdJmCK
+            source: /Users/francesco/Downloads/enemyDie.wav
+        distortion:
+          enabled: false
+          min: 0
+          max: 1
+        pitch:
+          enabled: false
+          min: 0
+          max: 1
+        reverb:
+          enabled: false
+          decayMin: 2
+          decayMax: 2
+          secondsMin: 2
+          secondsMax: 3
+          reverse: false
+        volume:
+          enabled: false
+          min: 0
+          max: 0.5
+        eq:
+          enabled: false
+          bands:
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+        panning:
+          refDistance: 0.5
+          rolloffFactor: 1
+      - name: SFX PlayerHit
+        uid: bcwr98R2jcn42j
+        type: sound
+        lastmod: 1718756346392
+        preload: true
+        variants:
+          - uid: 821mQ8CGFPNJkB
+            source: /Users/francesco/Downloads/playerHit.wav
+        distortion:
+          enabled: false
+          min: 0
+          max: 1
+        pitch:
+          enabled: false
+          min: 0
+          max: 1
+        reverb:
+          enabled: false
+          decayMin: 2
+          decayMax: 2
+          secondsMin: 2
+          secondsMax: 3
+          reverse: false
+        volume:
+          enabled: false
+          min: 0
+          max: 0.5
+        eq:
+          enabled: false
+          bands:
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+        panning:
+          refDistance: 0.5
+          rolloffFactor: 1
+      - name: SFX Powerup
+        uid: tN857GC6R6Rm8m
+        type: sound
+        lastmod: 1718755751822
+        preload: true
+        variants:
+          - uid: wWkRd5bbTDJTFJ
+            source: /Users/francesco/Downloads/powerUp.wav
+        distortion:
+          enabled: false
+          min: 0
+          max: 1
+        pitch:
+          enabled: false
+          min: 0
+          max: 1
+        reverb:
+          enabled: false
+          decayMin: 2
+          decayMax: 2
+          secondsMin: 2
+          secondsMax: 3
+          reverse: false
+        volume:
+          enabled: false
+          min: 0
+          max: 0.5
+        eq:
+          enabled: false
+          bands:
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+        panning:
+          refDistance: 0.5
+          rolloffFactor: 1
+      - name: SFX Shoot
+        uid: Ld1479KCdcr2CP
+        type: sound
+        lastmod: 1718755667638
+        preload: true
+        variants:
+          - uid: BKmqwgBQpWC25T
+            source: /Users/francesco/Downloads/laserShoot.wav
+        distortion:
+          enabled: false
+          min: 0
+          max: 1
+        pitch:
+          enabled: false
+          min: 0
+          max: 1
+        reverb:
+          enabled: false
+          decayMin: 2
+          decayMax: 2
+          secondsMin: 2
+          secondsMax: 3
+          reverse: false
+        volume:
+          enabled: true
+          min: 0
+          max: 0.5
+        eq:
+          enabled: false
+          bands:
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+            - min: -1
+              max: 1
+        panning:
+          refDistance: 0.5
+          rolloffFactor: 1
+  - type: folder
+    uid: qLCz9nGt1fD2j9
+    colorClass: accent1
+    icon: help-circle
+    name: Text Styles
+    lastmod: 1718837220166
+    entries:
+      - type: style
+        name: LivesText
+        uid: bTqGjr8LQQf8CG
+        typeface: krGQ1CB5r1NMtP
+        font:
+          family: sans-serif
+          halign: right
+          italic: false
+          size: 28
+          weight: '400'
+          wrap: false
+          wrapPosition: 350
+          lineHeight: 37.24
+        lastmod: 1718554621229
+        fill:
+          type: '0'
+          color: '#FFE626'
+        stroke:
+          color: '#5D6115'
+          weight: 5
+      - type: style
+        name: ScoreText
+        uid: 8B57cPJczpNWzM
+        typeface: krGQ1CB5r1NMtP
+        font:
+          family: sans-serif
+          halign: left
+          italic: false
+          size: 32
+          weight: '400'
+          wrap: false
+          wrapPosition: 350
+          lineHeight: 42.56
+        lastmod: 1718553980784
+        fill:
+          type: '0'
+          color: '#26B7FF'
+        stroke:
+          color: '#1C3473'
+          weight: 7
+      - type: style
+        name: MainTitleText
+        uid: cWbkddhWmRnk3f
+        typeface: krGQ1CB5r1NMtP
+        font:
+          family: sans-serif
+          halign: left
+          italic: false
+          size: 60
+          weight: '400'
+          wrap: false
+          wrapPosition: 640
+          lineHeight: 79.9
+        fill:
+          type: '0'
+          color: '#FFFA5E'
+          color1: '#CC5858'
+          color2: '#ffffff'
+          gradtype: '2'
+        lastmod: 1718867490730
+        stroke:
+          color: '#B55538'
+          weight: 6
+        shadow:
+          color: '#000000'
+          x: 0
+          'y': 8
+          blur: 2
+  - type: folder
+    uid: LMTHFBgq9TC5KR
+    colorClass: success
+    icon: help-circle
+    name: Particles
+    lastmod: 1718837240389
+    entries:
+      - name: Burst Emitter
+        uid: 4qDTD7m9mH55fp
+        emitters:
+          - uid: RMzTmL8KqKhgcb
+            texture: Wzq8fpt61BLhcN
+            openedTabs:
+              - texture
+              - velocity
+              - shape
+              - spawning
+              - rotation
+              - colors
+              - scaling
+            textureBehavior: textureRandom
+            animatedSingleFramerate: 30
+            settings:
+              delay: 0
+              lifetime:
+                min: 0.5
+                max: 0.8
+              frequency: 0.008
+              spawnChance: 1
+              particlesPerWave: 3
+              emitterLifetime: 0
+              maxParticles: 1000
+              maxSpeed: 0
+              pos:
+                x: 0
+                'y': 0
+              addAtBack: false
+              behaviors:
+                - type: alpha
+                  config:
+                    alpha:
+                      list:
+                        - value: 0.995
+                          time: 0
+                        - value: 0
+                          time: 1
+                - type: color
+                  config:
+                    color:
+                      list:
+                        - value: 4AC9FF
+                          time: 0
+                        - value: ffffff
+                          time: 1
+                      isStepped: true
+                - type: blendMode
+                  config:
+                    blendMode: screen
+                - type: scale
+                  config:
+                    scale:
+                      list:
+                        - value: 0.13
+                          time: 0
+                        - value: 0
+                          time: 1
+                      isStepped: true
+                    minMult: 0.66
+                - type: moveSpeed
+                  config:
+                    speed:
+                      list:
+                        - value: 762.5
+                          time: 0
+                        - value: 200
+                          time: 1
+                      isStepped: true
+                    minMult: 1
+                - type: spawnShape
+                  config:
+                    type: torus
+                    data:
+                      innerRadius: 0
+                      radius: 12
+                      x: 0
+                      'y': 0
+                      rotation: true
+                      affectRotation: false
+                - type: rotation
+                  config:
+                    minStart: 88
+                    maxStart: 95
+                    minSpeed: 0
+                    maxSpeed: 0
+                    accel: 0
+            showShapeVisualizer: true
+        lastmod: 1718868422951
+        type: tandem
+      - name: Smoke Emitter
+        uid: KtrDKC64RrjBL6
+        emitters:
+          - uid: c34mgBBH4h2ww7
+            texture: Wzq8fpt61BLhcN
+            openedTabs:
+              - texture
+              - colors
+              - velocity
+              - shape
+              - spawning
+              - rotation
+              - scaling
+            textureBehavior: textureRandom
+            animatedSingleFramerate: 30
+            settings:
+              delay: 0
+              lifetime:
+                min: 0.5
+                max: 0.9
+              frequency: 0.15
+              spawnChance: 0.55
+              particlesPerWave: 40
+              emitterLifetime: 0.2
+              maxParticles: 1000
+              maxSpeed: 0
+              pos:
+                x: 0
+                'y': 0
+              addAtBack: false
+              behaviors:
+                - type: alpha
+                  config:
+                    alpha:
+                      list:
+                        - value: 0.615
+                          time: 0
+                        - value: 0.18500000000000005
+                          time: 1
+                      isStepped: true
+                - type: color
+                  config:
+                    color:
+                      list:
+                        - value: '404040'
+                          time: 0
+                        - value: '858585'
+                          time: 1
+                      isStepped: true
+                - type: blendMode
+                  config:
+                    blendMode: screen
+                - type: scale
+                  config:
+                    scale:
+                      list:
+                        - value: 0.74
+                          time: 0
+                        - value: 0.36
+                          time: 1
+                    minMult: 0.4
+                - type: moveSpeed
+                  config:
+                    speed:
+                      list:
+                        - value: 300
+                          time: 0
+                        - value: 112.5
+                          time: 1
+                      isStepped: true
+                    minMult: 0.75
+                - type: spawnShape
+                  config:
+                    type: torus
+                    data:
+                      x: 0
+                      'y': 0
+                      radius: 50
+                      innerRadius: 20
+                      rotation: true
+                      affectRotation: true
+                - type: rotation
+                  config:
+                    minStart: 0
+                    maxStart: 270
+                    minSpeed: 0
+                    maxSpeed: 200
+                    accel: 1
+            showShapeVisualizer: false
+          - uid: B1FPLkLtcnBtnG
+            texture: 3CqLC3bHLzCz6N
+            openedTabs:
+              - texture
+              - spawning
+              - shape
+              - colors
+              - rotation
+              - velocity
+              - scaling
+            textureBehavior: textureRandom
+            animatedSingleFramerate: 30
+            settings:
+              delay: 0
+              lifetime:
+                min: 0.4
+                max: 0.8
+              frequency: 0.1
+              spawnChance: 1
+              particlesPerWave: 5
+              emitterLifetime: 0.3
+              maxParticles: 1000
+              maxSpeed: 0
+              pos:
+                x: 0
+                'y': 0
+              addAtBack: false
+              behaviors:
+                - type: alpha
+                  config:
+                    alpha:
+                      list:
+                        - value: 1
+                          time: 0
+                        - value: 0.365
+                          time: 1
+                      isStepped: true
+                - type: color
+                  config:
+                    color:
+                      list:
+                        - value: FF9D00
+                          time: 0
+                        - value: FF0000
+                          time: 1
+                      isStepped: true
+                - type: blendMode
+                  config:
+                    blendMode: screen
+                - type: scale
+                  config:
+                    scale:
+                      list:
+                        - value: 0.31
+                          time: 0
+                        - value: 0.00999999999999997
+                          time: 1
+                      isStepped: false
+                    minMult: 1
+                - type: moveSpeed
+                  config:
+                    speed:
+                      list:
+                        - value: 250
+                          time: 0
+                        - value: 100
+                          time: 1
+                      isStepped: true
+                    minMult: 1
+                - type: spawnShape
+                  config:
+                    type: torus
+                    data:
+                      innerRadius: 20
+                      radius: 80
+                      x: 0
+                      'y': 0
+                      rotation: true
+                      affectRotation: true
+                - type: rotation
+                  config:
+                    minStart: 0
+                    maxStart: 0
+                    minSpeed: 0
+                    maxSpeed: 0
+                    accel: 0
+            showShapeVisualizer: true
+        lastmod: 1718873728106
+        type: tandem
+  - type: folder
+    uid: WMK8n364tDGhTd
+    colorClass: text
+    icon: help-circle
+    name: Typefaces
+    lastmod: 1718837323749
+    entries:
+      - name: Kenney-Future-Narrow
+        type: typeface
+        fonts:
+          - weight: '400'
+            italic: false
+            uid: J4t2j1HjKjc21C
+            origname: Kenney-Future-Narrow
+        lastmod: 1718553933429
+        bitmapFont: false
+        bitmapFontSize: 16
+        bitmapFontLineHeight: 18
+        bitmapPrecision: false
+        charsets:
+          - allInFont
+        customCharset: ''
+        uid: krGQ1CB5r1NMtP
+  - type: folder
+    uid: ccTdPDDtKqQcKz
+    colorClass: error
+    icon: help-circle
+    name: Templates
+    lastmod: 1718837361836
+    entries:
+      - type: template
+        baseClass: AnimatedSprite
+        name: Enemy_Red_02
+        depth: 1
+        texture: N4nfhPbWpCmN2w
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnCreate
+            code: |-
+              this.score_on_kill = 100
+              this.shoot_label = "Laser_Red_08"
+            arguments: {}
+            lib: core
+        extends:
+          cgroup: Hostile
+        lastmod: 1718561983398
+        uid: NTLT3wJpBdFgJF
+        behaviors:
+          - tFn59wC2D4JHTN
+        extendTypes: ''
+      - type: template
+        baseClass: AnimatedSprite
+        name: Enemy_Red_03
+        depth: 1
+        texture: LfgBCJLKQk7JML
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnCreate
+            code: |-
+              this.score_on_kill = 100
+              this.shoot_label = "Laser_Red_09"
+            arguments: {}
+            lib: core
+        extends:
+          cgroup: Hostile
+        lastmod: 1718560471985
+        uid: TKghzWnDLKcqtd
+        behaviors:
+          - tFn59wC2D4JHTN
+        extendTypes: ''
+      - type: template
+        baseClass: AnimatedSprite
+        name: Laser_Blue_01
+        depth: 0
+        texture: cRqNgbz3qGjw2w
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnStep
+            lib: core
+            code: |-
+              this.kill = this.y < -this.texture.height
 
-          this.invincible = true
-          this.can_shoot = false
+              this.move();
+            arguments: {}
+          - eventKey: OnCreate
+            code: |-
+              this.speed = 1080
+              this.direction = 270
+            arguments: {}
+            lib: core
+        extends:
+          cgroup: ''
+        lastmod: 1718480720075
+        uid: 87KFhwDCr3CMf7
+        behaviors: []
+        extendTypes: ''
+      - type: template
+        baseClass: AnimatedSprite
+        name: Laser_Red_08
+        depth: 0
+        texture: zzk36JPzr4KDWN
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnCreate
+            code: this.angle = random.deg()
+            arguments: {}
+            lib: core
+          - eventKey: OnStep
+            code: this.angle -= 240 * u.time
+            arguments: {}
+            lib: core
+        extends:
+          cgroup: Hostile
+        lastmod: 1718561345135
+        uid: FRb97Q7R7QK1hB
+        behaviors:
+          - JR5J52dnzK2hgn
+        extendTypes: ''
+      - type: template
+        baseClass: AnimatedSprite
+        name: Shield_02
+        depth: 0
+        texture: TkKBzqML3tk9J9
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnStep
+            lib: core
+            code: this.move();
+            arguments: {}
+        extends: {}
+        lastmod: 1718562241329
+        uid: tt1hjfhFq19KT4
+        behaviors: []
+        extendTypes: ''
+      - type: template
+        baseClass: AnimatedSprite
+        name: Laser_Red_09
+        depth: 0
+        texture: Pn78W26zCfNz3m
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnStep
+            lib: core
+            code: this.angle -= 240 * u.time
+            arguments: {}
+          - eventKey: OnCreate
+            code: this.angle = random.deg()
+            arguments: {}
+            lib: core
+        extends:
+          cgroup: Hostile
+        lastmod: 1718561277668
+        uid: BrH4zLN32nQ4nT
+        behaviors:
+          - JR5J52dnzK2hgn
+        extendTypes: ''
+      - type: template
+        baseClass: Text
+        name: LivesText
+        depth: 1000
+        texture: -1
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnStep
+            lib: core
+            code: this.move();
+            arguments: {}
+          - eventKey: OnDraw
+            code: 'this.text = `Lives: ${rooms.current.lives}`'
+            arguments: {}
+            lib: core
+        extends:
+          cgroup: ''
+        lastmod: 1718554550086
+        uid: kB17B5HTMt1zhb
+        behaviors: []
+        extendTypes: ''
+        defaultText: 'Lives: 0'
+        textStyle: bTqGjr8LQQf8CG
+      - type: template
+        baseClass: AnimatedSprite
+        name: Meteor_Grey_Big_01
+        depth: 0
+        texture: 7Cc75QFGwtgKDK
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: collisionTemplate
+            code: |-
+              templates.copy("Meteor_Grey_Med_01", this.x, this.y)
+              templates.copy("Meteor_Grey_Med_01", this.x, this.y)
 
-          u.wait(1000).then(() => {
+              rooms.current.score += 100
+            arguments:
+              template: 87KFhwDCr3CMf7
+            lib: place
+        extends:
+          cgroup: Hostile
+        lastmod: 1718556196085
+        uid: WnN1whLhhnbRd1
+        behaviors:
+          - 1b9c95zrCknK7b
+        extendTypes: ''
+      - type: template
+        baseClass: AnimatedSprite
+        name: Meteor_Grey_Med_01
+        depth: 0
+        texture: nbzH3pdgtzGkRr
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: collisionTemplate
+            code: rooms.current.score += 150
+            arguments:
+              template: 87KFhwDCr3CMf7
+            lib: place
+        extends:
+          cgroup: Hostile
+        lastmod: 1718556188943
+        uid: bqn933gkcnR9Dc
+        behaviors:
+          - 1b9c95zrCknK7b
+        extendTypes: ''
+      - type: template
+        baseClass: AnimatedSprite
+        name: PlayerShip_02_Blue
+        depth: 1
+        texture: QgKWGTDCr8HWdT
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnStep
+            lib: core
+            code: >-
+              this.hspeed = this.moveSpeed * actions.MoveX.value
+
+              this.vspeed = this.moveSpeed * actions.MoveY.value
+
+
+              this.x = Math.max(this.textureHalfWidth, Math.min(this.x,
+              camera.width - this.textureHalfWidth))
+
+              this.y = Math.max(this.textureHalfHeight, Math.min(this.y,
+              camera.height - this.textureHalfHeight))
+
+
+              this.move()
+
+
+              this.alpha = this.invincible ? 0.5 : 1
+            arguments: {}
+          - eventKey: OnCreate
+            code: |-
+              this.moveSpeed = 480
+
               this.invincible = false
               this.can_shoot = true
-          })
-        arguments:
-          group: Hostile
-        lib: place
-    extends:
-      cgroup: Player
-    lastmod: 1718753800628
-    uid: b2HjJKB6T9r7WM
-    behaviors: []
-    extendTypes: ''
-  - type: room
-    oncreate: ''
-    onstep: ''
-    ondraw: ''
-    onleave: ''
-    gridX: 64
-    gridY: 64
-    diagonalGrid: true
-    disableGrid: true
-    simulate: true
-    width: 864
-    height: 486
-    restrictCamera: false
-    restrictMaxX: 1280
-    restrictMinX: 1280
-    restrictMaxY: 720
-    restrictMinY: 720
-    isUi: false
-    name: Main
-    backgroundColor: '#000000'
-    follow: -1
-    backgrounds:
-      - depth: -5
-        texture: Pkcfr4rf5C7t8k
-        shiftX: 0
-        shiftY: 0
-        parallaxX: 1
-        parallaxY: 1
-        movementX: 0
-        movementY: 20
-        scaleX: 1
-        scaleY: 1
-        repeat: repeat
-    copies:
-      - x: 432.1015625
-        'y': 411.53125
-        opacity: 1
-        tint: 16777215
-        scale:
-          x: 1
-          'y': 1
-        rotation: 0
+
+              this.shield = null
+              this.powerup_shield = 0
+
+              this.textureHalfWidth = this.texture.width * 0.5
+              this.textureHalfHeight = this.texture.height * 0.5
+
+              emitters.follow(this, "Burst Emitter", {
+                  position: {
+                      x: 0,
+                      y: 40
+                  },
+                  depth: -1
+              })
+            arguments: {}
+            lib: core
+          - eventKey: OnActionPress
+            code: |-
+              if (!this.can_shoot) return
+
+              templates.copy("Laser_Blue_01", this.x, this.y)
+
+              sounds.play("SFX Shoot")
+            arguments:
+              action: Shoot
+            lib: core
+          - eventKey: collisionCGroup
+            code: |-
+              if (this.invincible) return
+
+              this.powerup_shield = Math.max(0, this.powerup_shield - 1)
+
+              if (this.shield) {
+                  other.kill = true
+                  
+                  this.powerup_shield = Math.max(0, this.powerup_shield - 1)
+                  this.removeChild(this.shield)
+
+                  if (this.powerup_shield === 0) {
+                      this.shield = null
+                  } else {
+                      this.shield = templates.copy(`Shield_0${this.powerup_shield}`, 0, 0)
+                  }
+
+                  return
+              }
+
+              other.kill = templates.isCopy(other)
+
+              rooms.current.lives--
+
+              if (rooms.current.lives <= 0) {
+                  sounds.play("SFX EnemyDie")
+                  emitters.fire("Smoke Emitter", this.x, this.y)
+
+                  this.kill = true
+                  
+                  // u.wait(1000).then(() => {
+                  //     rooms.switch("Main")
+                  // })
+
+                  rooms.current.timer3 = 1
+              } else {
+                  sounds.play("SFX PlayerHit")
+              }
+
+              this.invincible = true
+              this.can_shoot = false
+
+              u.wait(1000).then(() => {
+                  this.invincible = false
+                  this.can_shoot = true
+              })
+            arguments:
+              group: Hostile
+            lib: place
+        extends:
+          cgroup: Player
+        lastmod: 1718874034894
         uid: b2HjJKB6T9r7WM
-        exts: {}
-        customProperties: {}
-        bindings: {}
-      - x: 24
-        'y': 12
-        opacity: 1
-        tint: 16777215
-        scale:
-          x: 1
-          'y': 1
-        rotation: 0
+        behaviors: []
+        extendTypes: ''
+      - type: template
+        baseClass: AnimatedSprite
+        name: Powerup_Green_Shield
+        depth: 0
+        texture: 8p6nPWcJw71DJ6
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnStep
+            lib: core
+            code: this.move();
+            arguments: {}
+          - eventKey: OnCreate
+            code: this.powerup_name = "Shield"
+            arguments: {}
+            lib: core
+        extends:
+          cgroup: ''
+        lastmod: 1718562906396
+        uid: Tb1dKhfnDjBF2P
+        behaviors:
+          - kGtLHT7pMQFGNH
+        extendTypes: ''
+      - type: template
+        baseClass: Text
+        name: ScoreText
+        depth: 1000
+        texture: -1
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnStep
+            lib: core
+            code: this.move();
+            arguments: {}
+          - eventKey: OnDraw
+            code: 'this.text = `Score: ${rooms.current.score}`'
+            arguments: {}
+            lib: core
+        extends:
+          cgroup: ''
+        lastmod: 1718553779444
         uid: M45TqgDPP2QJ4M
-        exts: {}
-        customProperties: {}
-        bindings: {}
-      - x: 700
-        'y': 12
-        opacity: 1
-        tint: 16777215
-        scale:
-          x: 1
-          'y': 1
-        rotation: 0
-        uid: kB17B5HTMt1zhb
-        exts: {}
-        customProperties: {}
-        bindings: {}
-    tiles: []
-    extends: {}
-    lastmod: 1718566416717
-    events:
-      - eventKey: OnRoomStart
-        code: |-
-          this.timer1 = 0.3 // asteroids timer
-          this.timer2 = 3 // enemies timer
+        behaviors: []
+        extendTypes: ''
+        defaultText: 'Score: 0'
+        textStyle: 8B57cPJczpNWzM
+      - type: template
+        baseClass: AnimatedSprite
+        name: Shield_01
+        depth: 0
+        texture: RdBb52TLjfb27B
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnStep
+            lib: core
+            code: this.move();
+            arguments: {}
+        extends: {}
+        lastmod: 1718562235050
+        uid: td2zN2PqwWTf43
+        behaviors: []
+        extendTypes: ''
+      - type: template
+        baseClass: AnimatedSprite
+        name: Shield_03
+        depth: 0
+        texture: MwT67gftJwLKJd
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnStep
+            lib: core
+            code: this.move();
+            arguments: {}
+        extends: {}
+        lastmod: 1718562238675
+        uid: 7r35hJR3DgRfCk
+        behaviors: []
+        extendTypes: ''
+      - type: template
+        baseClass: Text
+        name: MainTitleText
+        depth: 0
+        texture: -1
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnStep
+            lib: core
+            code: this.move();
+            arguments: {}
+        extends:
+          cgroup: ''
+        lastmod: 1718867722700
+        uid: gQrqN2dbjmng62
+        behaviors: []
+        extendTypes: ''
+        defaultText: Space Shooter
+        textStyle: cWbkddhWmRnk3f
+      - type: template
+        baseClass: AnimatedSprite
+        name: ButtonStart
+        depth: 2
+        texture: 3k26JHm5tfdWwH
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnPointerUp
+            code: rooms.switch("Main")
+            arguments: {}
+            lib: core
+          - eventKey: OnCreate
+            code: |-
+              const finalY = this.y - 10
+              this.alpha = 0
 
-          this.score = 0
-          this.lives = 3
-        arguments: {}
-        lib: core
-      - eventKey: Timer1
-        code: >-
-          this.timer1 = random.range(0.3, 3)
-
-
-          const selectedCopy = random.dice("Meteor_Grey_Med_01",
-          "Meteor_Grey_Big_01")
-
-          templates.copy(selectedCopy, random(camera.width), -100)
-        arguments:
-          name: Generate Asteroids
-          isUi: false
-        lib: core
-      - eventKey: Timer2
-        code: |-
-          this.timer2 = random.range(3, 6)
-
-          const selectedCopy = random.dice("Enemy_Red_02", "Enemy_Red_03")
-
-          templates.copy(selectedCopy, random(camera.width), -100)
-        arguments:
-          name: Generate Enemies
-          isUi: false
-        lib: core
-    behaviors: []
-    extendTypes: ''
-    uid: mz3rNF1R7L7j4K
-  - type: template
-    baseClass: Text
-    name: ScoreText
-    depth: 1000
-    texture: -1
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnStep
-        lib: core
-        code: this.move();
-        arguments: {}
-      - eventKey: OnDraw
-        code: 'this.text = `Score: ${rooms.current.score}`'
-        arguments: {}
-        lib: core
-    extends:
-      cgroup: ''
-    lastmod: 1718553779444
-    uid: M45TqgDPP2QJ4M
-    behaviors: []
-    extendTypes: ''
-    defaultText: 'Score: 0'
-    textStyle: 8B57cPJczpNWzM
-  - type: style
-    name: ScoreText
-    uid: 8B57cPJczpNWzM
-    typeface: krGQ1CB5r1NMtP
-    font:
-      family: sans-serif
-      halign: left
-      italic: false
-      size: 32
-      weight: '400'
-      wrap: false
-      wrapPosition: 350
-      lineHeight: 42.56
-    lastmod: 1718553980784
-    fill:
-      type: '0'
-      color: '#26B7FF'
-    stroke:
-      color: '#1C3473'
-      weight: 7
-  - name: Kenney-Future-Narrow
-    type: typeface
-    fonts:
-      - weight: '400'
-        italic: false
-        uid: J4t2j1HjKjc21C
-        origname: Kenney-Future-Narrow
-    lastmod: 1718553933429
-    bitmapFont: false
-    bitmapFontSize: 16
-    bitmapFontLineHeight: 18
-    bitmapPrecision: false
-    charsets:
-      - allInFont
-    customCharset: ''
-    uid: krGQ1CB5r1NMtP
-  - type: template
-    baseClass: Text
-    name: LivesText
-    depth: 1000
-    texture: -1
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnStep
-        lib: core
-        code: this.move();
-        arguments: {}
-      - eventKey: OnDraw
-        code: 'this.text = `Lives: ${rooms.current.lives}`'
-        arguments: {}
-        lib: core
-    extends:
-      cgroup: ''
-    lastmod: 1718554550086
-    uid: kB17B5HTMt1zhb
-    behaviors: []
-    extendTypes: ''
-    defaultText: 'Lives: 0'
-    textStyle: bTqGjr8LQQf8CG
-  - type: style
-    name: LivesText
-    uid: bTqGjr8LQQf8CG
-    typeface: krGQ1CB5r1NMtP
-    font:
-      family: sans-serif
-      halign: right
-      italic: false
-      size: 28
-      weight: '400'
-      wrap: false
-      wrapPosition: 350
-      lineHeight: 37.24
-    lastmod: 1718554621229
-    fill:
-      type: '0'
-      color: '#FFE626'
-    stroke:
-      color: '#5D6115'
-      weight: 5
-  - type: behavior
-    name: Asteroids Behavior
-    behaviorType: template
-    events:
-      - eventKey: OnCreate
-        code: |-
-          this.speed = random.range(50, 100)
-          this.direction = random.range(60, 120)
-        arguments: {}
-        lib: core
-      - eventKey: OnStep
-        code: |-
-          this.angle += 100 * u.time
-
-          this.move();
-
-          this.kill = this.y > camera.height + this.texture.height
-        arguments: {}
-        lib: core
-      - eventKey: collisionTemplate
-        code: |-
-          other.kill = true
-          this.kill = true
-
-          emitters.fire("Smoke Emitter", this.x, this.y)
-          sounds.play("SFX AsteroidDie")
-        arguments:
-          template: 87KFhwDCr3CMf7
-        lib: place
-    specification: []
-    extendTypes: ''
-    lastmod: 1718756111599
-    uid: 1b9c95zrCknK7b
-  - lastmod: 1718561963337
-    type: texture
-    name: Enemy_Red_02
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 52
-      - 42
-    marginx: 0
-    marginy: 0
-    imgWidth: 104
-    imgHeight: 84
-    width: 104
-    height: 84
-    offx: 0
-    offy: 0
-    origname: iN4nfhPbWpCmN2w.png
-    shape: strip
-    left: 52
-    right: 52
-    top: 42
-    bottom: 42
-    uid: N4nfhPbWpCmN2w
-    padding: 1
-    isBlank: false
-    source: >-
-      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
-      Space Shooter/Enemy_Red_02.png
-    stripPoints:
-      - x: -0.16666666666666666
-        'y': -40.333333333333336
-      - x: 16.666666666666668
-        'y': -31.666666666666664
-      - x: 32.66666666666667
-        'y': -15.333333333333334
-      - x: 49.33333333333333
-        'y': -14.666666666666664
-      - x: 49.00000000000001
-        'y': -7.16666666666667
-      - x: 23
-        'y': 40
-      - x: -0.3333333333333326
-        'y': 39.66666666666667
-      - x: -23.667853004110224
-        'y': 39.90277530624145
-      - x: -49.47110038584903
-        'y': -7.371814792470532
-      - x: -49.77318096130948
-        'y': -14.873138571447193
-      - x: -33.10388120421931
-        'y': -15.47035530806435
-      - x: -17.035964832328563
-        'y': -31.73688048228957
-    closedStrip: true
-    symmetryStrip: true
-  - lastmod: 1718561473582
-    type: texture
-    name: Laser_Red_08
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 24
-      - 23
-    marginx: 0
-    marginy: 0
-    imgWidth: 48
-    imgHeight: 46
-    width: 48
-    height: 46
-    offx: 0
-    offy: 0
-    origname: izzk36JPzr4KDWN.png
-    shape: circle
-    left: 24
-    right: 24
-    top: 23
-    bottom: 23
-    uid: zzk36JPzr4KDWN
-    padding: 1
-    isBlank: false
-    source: >-
-      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
-      Space Shooter/Laser_Red_08.png
-    r: 23
-  - type: template
-    baseClass: AnimatedSprite
-    name: Laser_Red_08
-    depth: 0
-    texture: zzk36JPzr4KDWN
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnCreate
-        code: this.angle = random.deg()
-        arguments: {}
-        lib: core
-      - eventKey: OnStep
-        code: this.angle -= 240 * u.time
-        arguments: {}
-        lib: core
-    extends:
-      cgroup: Hostile
-    lastmod: 1718561345135
-    uid: FRb97Q7R7QK1hB
-    behaviors:
-      - JR5J52dnzK2hgn
-    extendTypes: ''
-  - type: template
-    baseClass: AnimatedSprite
-    name: Enemy_Red_02
-    depth: 1
-    texture: N4nfhPbWpCmN2w
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnCreate
-        code: |-
-          this.score_on_kill = 100
-          this.shoot_label = "Laser_Red_08"
-        arguments: {}
-        lib: core
-    extends:
-      cgroup: Hostile
-    lastmod: 1718561983398
-    uid: NTLT3wJpBdFgJF
-    behaviors:
-      - tFn59wC2D4JHTN
-    extendTypes: ''
-  - type: behavior
-    name: Enemies Behavior
-    behaviorType: template
-    events:
-      - eventKey: OnCreate
-        code: |-
-          this.speed = 180
-          this.direction = random.range(70, 110)
-
-          this.timer1 = 1
-        arguments: {}
-        lib: core
-      - eventKey: OnStep
-        code: |-
-          this.move();
-
-          this.kill = this.y > camera.height + this.texture.height * 0.5
-        arguments: {}
-        lib: core
-      - eventKey: collisionTemplate
-        code: |-
-          other.kill = true
-          this.kill = true
-
-          rooms.current.score += this.score_on_kill
-
-          emitters.fire("Smoke Emitter", this.x, this.y)
-          sounds.play("SFX EnemyDie")
-        arguments:
-          template: 87KFhwDCr3CMf7
-        lib: place
-      - eventKey: Timer1
-        code: >-
-          this.timer1 = 3
-
-          templates.copy(this.shoot_label, this.x, this.y + this.texture.height
-          * 0.5)
-        arguments:
-          name: Shoot
-          isUi: false
-        lib: core
-      - eventKey: OnDestroy
-        code: |-
-          const dropPowerUp = random.dice(0, 1)
-
-          if (!dropPowerUp) return
-
-          templates.copy("Powerup_Green_Shield", this.x, this.y)
-        arguments: {}
-        lib: core
-    specification: []
-    extendTypes: ''
-    lastmod: 1718755999329
-    uid: tFn59wC2D4JHTN
-  - type: behavior
-    name: Enemy Laser Behavior
-    behaviorType: template
-    events:
-      - eventKey: OnCreate
-        code: |-
-          this.speed = 480
-          this.direction = 90
-        arguments: {}
-        lib: core
-      - eventKey: OnStep
-        code: |-
-          this.kill = this.y > camera.height + this.texture.height
-
-          this.move();
-        arguments: {}
-        lib: core
-    specification: []
-    extendTypes: ''
-    lastmod: 1718561277699
-    uid: JR5J52dnzK2hgn
-  - lastmod: 1718562551508
-    type: texture
-    name: Powerup_Green_Shield
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 17
-      - 16
-    marginx: 0
-    marginy: 0
-    imgWidth: 34
-    imgHeight: 33
-    width: 34
-    height: 33
-    offx: 0
-    offy: 0
-    origname: i8p6nPWcJw71DJ6.png
-    shape: rect
-    left: 17
-    right: 17
-    top: 16
-    bottom: 17
-    uid: 8p6nPWcJw71DJ6
-    padding: 1
-    isBlank: false
-    source: >-
-      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
-      Space Shooter/Powerup_Green_Shield.png
-  - lastmod: 1718564775526
-    type: texture
-    name: Shield_01
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 66
-      - 54
-    marginx: 0
-    marginy: 0
-    imgWidth: 133
-    imgHeight: 108
-    width: 133
-    height: 108
-    offx: 0
-    offy: 0
-    origname: iRdBb52TLjfb27B.png
-    shape: rect
-    left: 66
-    right: 67
-    top: 54
-    bottom: 54
-    uid: RdBb52TLjfb27B
-    padding: 1
-    isBlank: false
-    source: >-
-      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
-      Space Shooter/Shield_01.png
-    r: 54
-  - lastmod: 1718564780785
-    type: texture
-    name: Shield_02
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 71
-      - 59
-    marginx: 0
-    marginy: 0
-    imgWidth: 143
-    imgHeight: 119
-    width: 143
-    height: 119
-    offx: 0
-    offy: 0
-    origname: iTkKBzqML3tk9J9.png
-    shape: rect
-    left: 71
-    right: 72
-    top: 59
-    bottom: 60
-    uid: TkKBzqML3tk9J9
-    padding: 1
-    isBlank: false
-    source: >-
-      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
-      Space Shooter/Shield_02.png
-  - lastmod: 1718564791574
-    type: texture
-    name: Shield_03
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 72
-      - 68
-    marginx: 0
-    marginy: 0
-    imgWidth: 144
-    imgHeight: 137
-    width: 144
-    height: 137
-    offx: 0
-    offy: 0
-    origname: iMwT67gftJwLKJd.png
-    shape: rect
-    left: 72
-    right: 72
-    top: 68
-    bottom: 69
-    uid: MwT67gftJwLKJd
-    padding: 1
-    isBlank: false
-    source: >-
-      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
-      Space Shooter/Shield_03.png
-  - type: template
-    baseClass: AnimatedSprite
-    name: Shield_01
-    depth: 0
-    texture: RdBb52TLjfb27B
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnStep
-        lib: core
-        code: this.move();
-        arguments: {}
-    extends: {}
-    lastmod: 1718562235050
-    uid: td2zN2PqwWTf43
-    behaviors: []
-    extendTypes: ''
-  - type: template
-    baseClass: AnimatedSprite
-    name: Shield_03
-    depth: 0
-    texture: MwT67gftJwLKJd
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnStep
-        lib: core
-        code: this.move();
-        arguments: {}
-    extends: {}
-    lastmod: 1718562238675
-    uid: 7r35hJR3DgRfCk
-    behaviors: []
-    extendTypes: ''
-  - type: template
-    baseClass: AnimatedSprite
-    name: Shield_02
-    depth: 0
-    texture: TkKBzqML3tk9J9
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnStep
-        lib: core
-        code: this.move();
-        arguments: {}
-    extends: {}
-    lastmod: 1718562241329
-    uid: tt1hjfhFq19KT4
-    behaviors: []
-    extendTypes: ''
-  - type: template
-    baseClass: AnimatedSprite
-    name: Powerup_Green_Shield
-    depth: 0
-    texture: 8p6nPWcJw71DJ6
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnStep
-        lib: core
-        code: this.move();
-        arguments: {}
-      - eventKey: OnCreate
-        code: this.powerup_name = "Shield"
-        arguments: {}
-        lib: core
-    extends:
-      cgroup: ''
-    lastmod: 1718562906396
-    uid: Tb1dKhfnDjBF2P
-    behaviors:
-      - kGtLHT7pMQFGNH
-    extendTypes: ''
-  - type: behavior
-    name: Powerup Behavior
-    behaviorType: template
-    events:
-      - eventKey: OnCreate
-        code: |-
-          this.speed = 80
-          this.direction = 90
-        arguments: {}
-        lib: core
-      - eventKey: OnStep
-        code: this.kill = this.y > camera.height + 80
-        arguments: {}
-        lib: core
-      - eventKey: collisionCGroup
-        code: |-
-          switch (this.powerup_name) {
-              case "Shield":
-                  other.powerup_shield = Math.min(3, other.powerup_shield + 1)
-                  other.powerup_shield === 3 && (rooms.current.score += 1000)
-
-                  other.shield && other.removeChild(other.shield)
-
-                  other.shield = templates.copy(`Shield_0${other.powerup_shield}`, 0, 0)
-
-                  other.addChild(other.shield)
-                  break
-          }
-
-          sounds.play("SFX Powerup")
-
-          this.kill = true
-        arguments:
-          group: Player
-        lib: place
-    specification: []
-    extendTypes: ''
-    lastmod: 1718755616953
-    uid: kGtLHT7pMQFGNH
-  - name: Smoke Emitter
-    uid: KtrDKC64RrjBL6
-    emitters:
-      - uid: c34mgBBH4h2ww7
-        texture: Wzq8fpt61BLhcN
-        openedTabs:
-          - texture
-          - colors
-          - velocity
-          - shape
-          - spawning
-          - rotation
-          - scaling
-        textureBehavior: textureRandom
-        animatedSingleFramerate: 30
-        settings:
-          delay: 0
-          lifetime:
-            min: 0.5
-            max: 0.9
-          frequency: 0.15
-          spawnChance: 0.55
-          particlesPerWave: 40
-          emitterLifetime: 0.2
-          maxParticles: 1000
-          maxSpeed: 0
-          pos:
-            x: 0
-            'y': 0
-          addAtBack: false
-          behaviors:
-            - type: alpha
-              config:
-                alpha:
-                  list:
-                    - value: 0.615
-                      time: 0
-                    - value: 0.18500000000000005
-                      time: 1
-                  isStepped: true
-            - type: color
-              config:
-                color:
-                  list:
-                    - value: '404040'
-                      time: 0
-                    - value: '858585'
-                      time: 1
-                  isStepped: true
-            - type: blendMode
-              config:
-                blendMode: screen
-            - type: scale
-              config:
-                scale:
-                  list:
-                    - value: 0.74
-                      time: 0
-                    - value: 0.36
-                      time: 1
-                minMult: 0.4
-            - type: moveSpeed
-              config:
-                speed:
-                  list:
-                    - value: 300
-                      time: 0
-                    - value: 112.5
-                      time: 1
-                  isStepped: true
-                minMult: 0.75
-            - type: spawnShape
-              config:
-                type: torus
-                data:
-                  x: 0
-                  'y': 0
-                  radius: 50
-                  innerRadius: 20
-                  rotation: true
-                  affectRotation: true
-            - type: rotation
-              config:
-                minStart: 0
-                maxStart: 270
-                minSpeed: 0
-                maxSpeed: 200
-                accel: 1
-        showShapeVisualizer: true
-    lastmod: 1718754519597
-    type: tandem
-  - lastmod: 1718752042130
-    type: texture
-    name: Effect_Blast
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 0
-      - 0
-    marginx: 0
-    marginy: 0
-    imgWidth: 128
-    imgHeight: 128
-    width: 128
-    height: 128
-    offx: 0
-    offy: 0
-    origname: iWzq8fpt61BLhcN.png
-    shape: rect
-    left: 0
-    right: 128
-    top: 0
-    bottom: 128
-    uid: Wzq8fpt61BLhcN
-    padding: 1
-    isBlank: false
-    source: >-
-      /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
-      Scribble Platformer/Effect_Blast.png
-  - name: Burst Emitter
-    uid: 4qDTD7m9mH55fp
-    emitters:
-      - uid: RMzTmL8KqKhgcb
-        texture: Wzq8fpt61BLhcN
-        openedTabs:
-          - texture
-          - velocity
-          - shape
-          - spawning
-          - rotation
-          - colors
-          - scaling
-        textureBehavior: textureRandom
-        animatedSingleFramerate: 30
-        settings:
-          delay: 0
-          lifetime:
-            min: 0.5
-            max: 0.5
-          frequency: 0.008
-          spawnChance: 1
-          particlesPerWave: 1
-          emitterLifetime: 0
-          maxParticles: 1000
-          maxSpeed: 0
-          pos:
-            x: 0
-            'y': 0
-          addAtBack: false
-          behaviors:
-            - type: alpha
-              config:
-                alpha:
-                  list:
-                    - value: 0.995
-                      time: 0
-                    - value: 0
-                      time: 1
-            - type: color
-              config:
-                color:
-                  list:
-                    - value: 4AC9FF
-                      time: 0
-                    - value: ffffff
-                      time: 1
-                  isStepped: true
-            - type: blendMode
-              config:
-                blendMode: screen
-            - type: scale
-              config:
-                scale:
-                  list:
-                    - value: 0.19000000000000009
-                      time: 0
-                    - value: 0
-                      time: 1
-                  isStepped: false
-                minMult: 0.16
-            - type: moveSpeed
-              config:
-                speed:
-                  list:
-                    - value: 487.5
-                      time: 0
-                    - value: 200
-                      time: 1
-                  isStepped: false
-                minMult: 1
-            - type: spawnShape
-              config:
-                type: torus
-                data:
-                  innerRadius: 0
-                  radius: 20
-                  x: 0
-                  'y': 0
-                  rotation: true
-            - type: rotation
-              config:
-                minStart: 88
-                maxStart: 95
-                minSpeed: 0
-                maxSpeed: 0
-                accel: 0
-        showShapeVisualizer: true
-    lastmod: 1718754433234
-    type: tandem
-  - name: SFX Shoot
-    uid: Ld1479KCdcr2CP
-    type: sound
-    lastmod: 1718755667638
-    preload: true
-    variants:
-      - uid: BKmqwgBQpWC25T
-        source: /Users/francesco/Downloads/laserShoot.wav
-    distortion:
-      enabled: false
-      min: 0
-      max: 1
-    pitch:
-      enabled: false
-      min: 0
-      max: 1
-    reverb:
-      enabled: false
-      decayMin: 2
-      decayMax: 2
-      secondsMin: 2
-      secondsMax: 3
-      reverse: false
-    volume:
-      enabled: true
-      min: 0
-      max: 0.5
-    eq:
-      enabled: false
-      bands:
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-    panning:
-      refDistance: 0.5
-      rolloffFactor: 1
-  - name: SFX Powerup
-    uid: tN857GC6R6Rm8m
-    type: sound
-    lastmod: 1718755751822
-    preload: true
-    variants:
-      - uid: wWkRd5bbTDJTFJ
-        source: /Users/francesco/Downloads/powerUp.wav
-    distortion:
-      enabled: false
-      min: 0
-      max: 1
-    pitch:
-      enabled: false
-      min: 0
-      max: 1
-    reverb:
-      enabled: false
-      decayMin: 2
-      decayMax: 2
-      secondsMin: 2
-      secondsMax: 3
-      reverse: false
-    volume:
-      enabled: false
-      min: 0
-      max: 0.5
-    eq:
-      enabled: false
-      bands:
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-    panning:
-      refDistance: 0.5
-      rolloffFactor: 1
-  - name: SFX EnemyDie
-    uid: FLBmLMLnrH5c4k
-    type: sound
-    lastmod: 1718755968847
-    preload: true
-    variants:
-      - uid: d1j54cMHqdJmCK
-        source: /Users/francesco/Downloads/enemyDie.wav
-    distortion:
-      enabled: false
-      min: 0
-      max: 1
-    pitch:
-      enabled: false
-      min: 0
-      max: 1
-    reverb:
-      enabled: false
-      decayMin: 2
-      decayMax: 2
-      secondsMin: 2
-      secondsMax: 3
-      reverse: false
-    volume:
-      enabled: false
-      min: 0
-      max: 0.5
-    eq:
-      enabled: false
-      bands:
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-    panning:
-      refDistance: 0.5
-      rolloffFactor: 1
-  - name: SFX AsteroidDie
-    uid: 6Wg91HhHjBF7Hj
-    type: sound
-    lastmod: 1718756090961
-    preload: true
-    variants:
-      - uid: mQcFm39LmQ47JP
-        source: /Users/francesco/Downloads/asteroidDie.wav
-    distortion:
-      enabled: false
-      min: 0
-      max: 1
-    pitch:
-      enabled: false
-      min: 0
-      max: 1
-    reverb:
-      enabled: false
-      decayMin: 2
-      decayMax: 2
-      secondsMin: 2
-      secondsMax: 3
-      reverse: false
-    volume:
-      enabled: false
-      min: 0
-      max: 0.5
-    eq:
-      enabled: false
-      bands:
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-    panning:
-      refDistance: 0.5
-      rolloffFactor: 1
-  - name: SFX PlayerHit
-    uid: bcwr98R2jcn42j
-    type: sound
-    lastmod: 1718756346392
-    preload: true
-    variants:
-      - uid: 821mQ8CGFPNJkB
-        source: /Users/francesco/Downloads/playerHit.wav
-    distortion:
-      enabled: false
-      min: 0
-      max: 1
-    pitch:
-      enabled: false
-      min: 0
-      max: 1
-    reverb:
-      enabled: false
-      decayMin: 2
-      decayMax: 2
-      secondsMin: 2
-      secondsMax: 3
-      reverse: false
-    volume:
-      enabled: false
-      min: 0
-      max: 0.5
-    eq:
-      enabled: false
-      bands:
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-        - min: -1
-          max: 1
-    panning:
-      refDistance: 0.5
-      rolloffFactor: 1
+              u.wait(250).then(() => {
+                  tween.add({
+                      obj: this,
+                      fields: {
+                          y: finalY,
+                          alpha: 1
+                      },
+                      duration: 600,
+                      curve: tween.easeOutCubic,
+                      isUi: true
+                  })
+              })
+            arguments: {}
+            lib: core
+        extends:
+          cgroup: ''
+          finalX: 432
+          finalY: 310
+        lastmod: 1718877365338
+        uid: MkQ2jrT8Lp9mHH
+        behaviors:
+          - Gq756PDKHMBn7G
+        extendTypes: ''
+      - type: template
+        baseClass: AnimatedSprite
+        name: ButtonBackToMain
+        depth: 2
+        texture: MPtff5tdMFgwWL
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnPointerUp
+            code: rooms.switch("Main Menu")
+            arguments: {}
+            lib: core
+        extends:
+          cgroup: ''
+          finalX: 432
+          finalY: 300
+        lastmod: 1718876523226
+        uid: 5Lr85Pc7bM5JG6
+        behaviors:
+          - Gq756PDKHMBn7G
+        extendTypes: ''
+      - type: template
+        baseClass: AnimatedSprite
+        name: ButtonRestart
+        depth: 2
+        texture: gMRjbpPrmMnfFH
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnPointerUp
+            code: rooms.switch("Main")
+            arguments: {}
+            lib: core
+        extends:
+          cgroup: ''
+          finalX: 432
+          finalY: 240
+        lastmod: 1718876535035
+        uid: 1w1qKwrQNQqjrm
+        behaviors:
+          - Gq756PDKHMBn7G
+        extendTypes: ''
 globalVars: []
 settings:
   authoring:
