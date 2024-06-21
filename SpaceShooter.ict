@@ -2132,12 +2132,9 @@ assets:
 
               other.kill = true
               emitters.fire("Smoke Emitter", other.x, other.y)
+              sounds.play("SFX EnemyDie")
 
-              this.powerup_shield = Math.max(0, this.powerup_shield - 1)
-
-              if (this.shield) {
-                  other.kill = true
-                  
+              if (this.shield) {    
                   this.powerup_shield = Math.max(0, this.powerup_shield - 1)
                   this.removeChild(this.shield)
 
@@ -2145,37 +2142,36 @@ assets:
                       this.shield = null
                   } else {
                       this.shield = templates.copy(`Shield_0${this.powerup_shield}`, 0, 0)
+                      this.addChild(this.shield)
+                  }
+              } else {
+                  rooms.current.lives--
+
+                  if (rooms.current.lives <= 0) {
+                      sounds.play("SFX EnemyDie")
+                      emitters.fire("Smoke Emitter", this.x, this.y)
+
+                      this.kill = true
+
+                      rooms.current.timer3 = 1
+                  } else {
+                      sounds.play("SFX PlayerHit")
                   }
 
-                  return
+                  this.invincible = true
+                  this.can_shoot = false
+
+                  u.wait(1000).then(() => {
+                      this.invincible = false
+                      this.can_shoot = true
+                  })
               }
-
-              rooms.current.lives--
-
-              if (rooms.current.lives <= 0) {
-                  sounds.play("SFX EnemyDie")
-                  emitters.fire("Smoke Emitter", this.x, this.y)
-
-                  this.kill = true
-
-                  rooms.current.timer3 = 1
-              } else {
-                  sounds.play("SFX PlayerHit")
-              }
-
-              this.invincible = true
-              this.can_shoot = false
-
-              u.wait(1000).then(() => {
-                  this.invincible = false
-                  this.can_shoot = true
-              })
             arguments:
               group: Hostile
             lib: place
         extends:
           cgroup: Player
-        lastmod: 1718926450989
+        lastmod: 1718928226134
         uid: b2HjJKB6T9r7WM
         behaviors: []
         extendTypes: ''
