@@ -67,7 +67,7 @@ assets:
         restrictMinX: 1280
         restrictMaxY: 720
         restrictMinY: 720
-        isUi: false
+        isUi: true
         name: Main
         backgroundColor: '#000000'
         follow: -1
@@ -146,7 +146,7 @@ assets:
             bindings: {}
         tiles: []
         extends: {}
-        lastmod: 1718926676675
+        lastmod: 1718930510536
         events:
           - eventKey: OnRoomStart
             code: |-
@@ -294,7 +294,7 @@ assets:
     name: Textures
     lastmod: 1718836947561
     entries:
-      - lastmod: 1718477736614
+      - lastmod: 1718929593120
         type: texture
         name: BG_Blue
         untill: 0
@@ -302,8 +302,8 @@ assets:
           - 1
           - 1
         axis:
-          - 0
-          - 0
+          - 128
+          - 128
         marginx: 0
         marginy: 0
         imgWidth: 256
@@ -314,10 +314,10 @@ assets:
         offy: 0
         origname: iPkcfr4rf5C7t8k.png
         shape: rect
-        left: 0
-        right: 256
-        top: 0
-        bottom: 256
+        left: 128
+        right: 128
+        top: 128
+        bottom: 128
         uid: Pkcfr4rf5C7t8k
         padding: 1
         isBlank: false
@@ -993,6 +993,36 @@ assets:
         padding: 1
         isBlank: false
         source: /Users/francesco/Desktop/ExplosionParticle.png
+      - lastmod: 1718930364369
+        type: texture
+        name: Powerup_Red_Bolt
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 0
+          - 0
+        marginx: 0
+        marginy: 0
+        imgWidth: 34
+        imgHeight: 33
+        width: 34
+        height: 33
+        offx: 0
+        offy: 0
+        origname: irHbfd3rB1btBz6.png
+        shape: rect
+        left: 0
+        right: 34
+        top: 0
+        bottom: 33
+        uid: rHbfd3rB1btBz6
+        padding: 1
+        isBlank: false
+        source: >-
+          /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
+          Space Shooter/Powerup_Red_Bolt.png
   - type: folder
     uid: kwkRhmpC5Ww7Bp
     colorClass: error
@@ -1063,12 +1093,17 @@ assets:
               isUi: false
             lib: core
           - eventKey: OnDestroy
-            code: |-
+            code: >-
               const dropPowerUp = random.dice(0, 1)
+
 
               if (!dropPowerUp) return
 
-              templates.copy("Powerup_Green_Shield", this.x, this.y)
+
+              const powerup = random.dice("Powerup_Green_Shield",
+              "Powerup_Red_Bolt")
+
+              templates.copy(powerup, this.x, this.y)
             arguments: {}
             lib: core
           - eventKey: collisionCGroup
@@ -1085,7 +1120,7 @@ assets:
             lib: place
         specification: []
         extendTypes: ''
-        lastmod: 1718926854069
+        lastmod: 1718930775367
         uid: tFn59wC2D4JHTN
       - type: behavior
         name: Enemy Laser Behavior
@@ -1135,6 +1170,12 @@ assets:
 
                       other.addChild(other.shield)
                       break
+                  case "Shots":
+                      other.powerup_shot = Math.max(1, Math.min(3, other.powerup_shot + 1))
+                      other.powerup_shot === 3 && (rooms.current.score += 1000)
+
+                      console.log('Powerup shot', other.powerup_shot)
+                      break
               }
 
               sounds.play("SFX Powerup")
@@ -1145,7 +1186,7 @@ assets:
             lib: place
         specification: []
         extendTypes: ''
-        lastmod: 1718755616953
+        lastmod: 1718930476876
         uid: kGtLHT7pMQFGNH
       - type: behavior
         name: Button Behavior
@@ -1905,19 +1946,19 @@ assets:
           - eventKey: OnStep
             lib: core
             code: |-
-              this.y <= this.texture.height && (this.kill = true)
+              this.y <= -this.texture.height && (this.kill = true)
 
               this.move()
             arguments: {}
           - eventKey: OnCreate
             code: |-
               this.speed = 1080
-              this.direction = 270
+              this.direction = this.shoot_dir ?? 270
             arguments: {}
             lib: core
         extends:
           cgroup: PlayerWeapons
-        lastmod: 1718926764525
+        lastmod: 1718931249277
         uid: 87KFhwDCr3CMf7
         behaviors: []
         extendTypes: ''
@@ -2000,17 +2041,13 @@ assets:
         animationFPS: 30
         visible: true
         events:
-          - eventKey: OnStep
-            lib: core
-            code: this.move();
-            arguments: {}
           - eventKey: OnDraw
             code: 'this.text = `Lives: ${rooms.current.lives}`'
             arguments: {}
             lib: core
         extends:
           cgroup: ''
-        lastmod: 1718554550086
+        lastmod: 1718929230285
         uid: kB17B5HTMt1zhb
         behaviors: []
         extendTypes: ''
@@ -2089,10 +2126,14 @@ assets:
               camera.height - this.textureHalfHeight))
 
 
-              this.move()
-
-
               this.alpha = this.invincible ? 0.5 : 1
+
+
+              backgrounds.list["BG_Blue"][0].shiftX = 20 - this.x /
+              rooms.current.width * 40
+
+
+              this.move()
             arguments: {}
           - eventKey: OnCreate
             code: |-
@@ -2103,6 +2144,8 @@ assets:
 
               this.shield = null
               this.powerup_shield = 0
+
+              this.powerup_shot = 1
 
               this.textureHalfWidth = this.texture.width * 0.5
               this.textureHalfHeight = this.texture.height * 0.5
@@ -2120,7 +2163,35 @@ assets:
             code: |-
               if (!this.can_shoot) return
 
-              templates.copy("Laser_Blue_01", this.x, this.y)
+              switch (this.powerup_shot) {
+                  case 1:
+                      templates.copy("Laser_Blue_01", this.x, this.y)
+                      break
+                  case 2:
+                      templates.copy("Laser_Blue_01", this.x + 30, this.y + 5, {
+                          shoot_dir: 280,
+                          angle: 10
+                      })
+
+                      templates.copy("Laser_Blue_01", this.x - 30, this.y + 5, {
+                          shoot_dir: 260,
+                          angle: -10
+                      })
+                      break
+                  case 3:
+                      templates.copy("Laser_Blue_01", this.x, this.y)
+
+                      templates.copy("Laser_Blue_01", this.x + 30, this.y + 5, {
+                          shoot_dir: 280,
+                          angle: 10
+                      })
+
+                      templates.copy("Laser_Blue_01", this.x - 30, this.y + 5, {
+                          shoot_dir: 260,
+                          angle: -10
+                      })
+                      break
+              }
 
               sounds.play("SFX Shoot")
             arguments:
@@ -2171,7 +2242,7 @@ assets:
             lib: place
         extends:
           cgroup: Player
-        lastmod: 1718928226134
+        lastmod: 1718929950160
         uid: b2HjJKB6T9r7WM
         behaviors: []
         extendTypes: ''
@@ -2374,6 +2445,31 @@ assets:
         behaviors:
           - Gq756PDKHMBn7G
         extendTypes: ''
+      - type: template
+        baseClass: AnimatedSprite
+        name: Powerup_Red_Bolt
+        depth: 0
+        texture: rHbfd3rB1btBz6
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnStep
+            lib: core
+            code: this.move();
+            arguments: {}
+          - eventKey: OnCreate
+            code: this.powerup_name = "Shots"
+            arguments: {}
+            lib: core
+        extends:
+          cgroup: ''
+        lastmod: 1718930443593
+        uid: PggqdkDdd1n2zP
+        behaviors:
+          - kGtLHT7pMQFGNH
+        extendTypes: ''
 globalVars: []
 settings:
   authoring:
@@ -2394,7 +2490,7 @@ settings:
     highDensity: true
     desktopMode: windowed
     hideCursor: false
-    mobileScreenOrientation: unspecified
+    mobileScreenOrientation: portrait
     viewMode: scaleFit
   export:
     showErrors: true
@@ -2417,14 +2513,14 @@ settings:
       tandem: false
       script: false
   branding:
-    accent: '#446adb'
+    accent: '#B58109'
     invertPreloaderScheme: true
     icon: -1
     splashScreen: -1
-    forceSmoothIcons: false
-    forceSmoothSplashScreen: false
-    hideLoadingLogo: false
-    alternativeLogo: false
-    customLoadingText: ''
+    forceSmoothIcons: true
+    forceSmoothSplashScreen: true
+    hideLoadingLogo: true
+    alternativeLogo: true
+    customLoadingText: Loooooooooading...
   fps: 30
 palette: []
