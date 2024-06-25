@@ -41,6 +41,9 @@ actions:
         multiplier: -1
       - code: keyboard.KeyD
         multiplier: 1
+  - name: Pause
+    methods:
+      - code: keyboard.Escape
 scripts: []
 assets:
   - type: folder
@@ -84,8 +87,8 @@ assets:
             scaleY: 1
             repeat: repeat
         copies:
-          - x: 432.1015625
-            'y': 411.53125
+          - x: 432
+            'y': 411
             opacity: 1
             tint: 16777215
             scale:
@@ -146,7 +149,7 @@ assets:
             bindings: {}
         tiles: []
         extends: {}
-        lastmod: 1718930510536
+        lastmod: 1719340213962
         events:
           - eventKey: OnRoomStart
             code: |-
@@ -219,6 +222,24 @@ assets:
               name: Game Over
               isUi: false
             lib: core
+          - eventKey: OnActionPress
+            code: |-
+              if (rooms.current.paused) {
+                  rooms.current.paused = false
+
+                  pixiApp.ticker.speed = 1
+
+                  rooms.remove(this.pauseScreen)
+              } else {
+                  rooms.current.paused = true
+
+                  pixiApp.ticker.speed = 0
+
+                  !this.pauseMenu && (this.pauseScreen = rooms.append("UI_Pause"))
+              }
+            arguments:
+              action: Pause
+            lib: core
         behaviors: []
         extendTypes: ''
         uid: mz3rNF1R7L7j4K
@@ -287,6 +308,75 @@ assets:
         behaviors: []
         extendTypes: ''
         uid: k7wGp9CnmDDdcL
+      - type: room
+        oncreate: ''
+        onstep: ''
+        ondraw: ''
+        onleave: ''
+        gridX: 64
+        gridY: 64
+        diagonalGrid: false
+        disableGrid: true
+        simulate: true
+        width: 864
+        height: 486
+        restrictCamera: false
+        restrictMaxX: 1280
+        restrictMinX: 1280
+        restrictMaxY: 720
+        restrictMinY: 720
+        isUi: true
+        name: UI_Pause
+        backgroundColor: '#000000'
+        follow: -1
+        backgrounds:
+          - depth: -5
+            texture: 3NGgGLwhMNKKTz
+            shiftX: 0
+            shiftY: 0
+            parallaxX: 1
+            parallaxY: 1
+            movementX: 0
+            movementY: 0
+            scaleX: 1
+            scaleY: 1
+            repeat: repeat
+        copies:
+          - x: 320
+            'y': 160
+            opacity: 1
+            tint: 16777215
+            scale:
+              x: 1
+              'y': 1
+            rotation: 0
+            uid: F77Br3LmNn8CnH
+            exts: {}
+            customProperties: {}
+            bindings: {}
+          - x: 280
+            'y': 232
+            opacity: 1
+            tint: 16777215
+            scale:
+              x: 1
+              'y': 1
+            rotation: 0
+            uid: knW933rFDNKT3z
+            exts: {}
+            customProperties: {}
+            bindings: {}
+        tiles: []
+        extends: {}
+        lastmod: 1719340599685
+        events:
+          - eventKey: OnRoomStart
+            code: 'backgrounds.list[''Overlay''][0].tint = ''#000000'''
+            arguments: {}
+            lib: core
+        behaviors: []
+        extendTypes: ''
+        uid: rpwqr3B98Dnzhg
   - type: folder
     uid: c5w29pBHLpkCq4
     colorClass: warning
@@ -1023,6 +1113,35 @@ assets:
         source: >-
           /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
           Space Shooter/Powerup_Red_Bolt.png
+      - lastmod: 1719338856960
+        type: texture
+        name: Overlay
+        untill: 0
+        grid:
+          - 1
+          - 1
+        axis:
+          - 50
+          - 50
+        marginx: 0
+        marginy: 0
+        imgWidth: 100
+        imgHeight: 100
+        width: 100
+        height: 100
+        offx: 0
+        offy: 0
+        origname: i3NGgGLwhMNKKTz.png
+        shape: rect
+        left: 50
+        right: 50
+        top: 50
+        bottom: 50
+        uid: 3NGgGLwhMNKKTz
+        padding: 1
+        isBlank: false
+        source: /Users/francesco/Desktop/Overlay.png
+        tiled: true
   - type: folder
     uid: kwkRhmpC5Ww7Bp
     colorClass: error
@@ -1581,6 +1700,52 @@ assets:
           x: 0
           'y': 8
           blur: 2
+      - type: style
+        name: PauseScreenTitle
+        uid: WB5c2D2qrd8GpC
+        typeface: krGQ1CB5r1NMtP
+        font:
+          family: sans-serif
+          halign: center
+          italic: false
+          size: 52
+          weight: '400'
+          wrap: false
+          wrapPosition: 640
+          lineHeight: 69.26
+        fill:
+          type: 0
+          color: '#ffffff'
+          color1: '#cccccc'
+          color2: '#ffffff'
+          gradtype: 1
+        lastmod: 1719340673874
+        stroke:
+          color: '#000000'
+          weight: 7
+      - type: style
+        name: PauseScreenHint
+        uid: DgfTrfzM94tWct
+        typeface: krGQ1CB5r1NMtP
+        font:
+          family: sans-serif
+          halign: center
+          italic: false
+          size: 24
+          weight: '400'
+          wrap: false
+          wrapPosition: 640
+          lineHeight: 32.02
+        fill:
+          type: 0
+          color: '#ffffff'
+          color1: '#cccccc'
+          color2: '#ffffff'
+          gradtype: 1
+        lastmod: 1719340652386
+        stroke:
+          color: '#000000'
+          weight: 4
   - type: folder
     uid: LMTHFBgq9TC5KR
     colorClass: success
@@ -1595,12 +1760,12 @@ assets:
             texture: Wzq8fpt61BLhcN
             openedTabs:
               - texture
-              - velocity
               - shape
               - spawning
               - rotation
               - colors
               - scaling
+              - velocity
             textureBehavior: textureRandom
             animatedSingleFramerate: 30
             settings:
@@ -1677,7 +1842,7 @@ assets:
                     maxSpeed: 0
                     accel: 0
             showShapeVisualizer: true
-        lastmod: 1718868422951
+        lastmod: 1719336435498
         type: tandem
       - name: Smoke Emitter
         uid: KtrDKC64RrjBL6
@@ -2032,28 +2197,6 @@ assets:
           - JR5J52dnzK2hgn
         extendTypes: ''
       - type: template
-        baseClass: Text
-        name: LivesText
-        depth: 1000
-        texture: -1
-        playAnimationOnStart: false
-        loopAnimation: true
-        animationFPS: 30
-        visible: true
-        events:
-          - eventKey: OnDraw
-            code: 'this.text = `Lives: ${rooms.current.lives}`'
-            arguments: {}
-            lib: core
-        extends:
-          cgroup: ''
-        lastmod: 1718929230285
-        uid: kB17B5HTMt1zhb
-        behaviors: []
-        extendTypes: ''
-        defaultText: 'Lives: 0'
-        textStyle: bTqGjr8LQQf8CG
-      - type: template
         baseClass: AnimatedSprite
         name: Meteor_Grey_Big_01
         depth: 0
@@ -2129,6 +2272,9 @@ assets:
               this.alpha = this.invincible ? 0.5 : 1
 
 
+              this.burstEmitter.frozen = rooms.current.paused
+
+
               backgrounds.list["BG_Blue"][0].shiftX = 20 - this.x /
               rooms.current.width * 40
 
@@ -2150,7 +2296,7 @@ assets:
               this.textureHalfWidth = this.texture.width * 0.5
               this.textureHalfHeight = this.texture.height * 0.5
 
-              emitters.follow(this, "Burst Emitter", {
+              this.burstEmitter = emitters.follow(this, "Burst Emitter", {
                   position: {
                       x: 0,
                       y: 40
@@ -2162,6 +2308,7 @@ assets:
           - eventKey: OnActionPress
             code: |-
               if (!this.can_shoot) return
+              if (rooms.current.paused) return
 
               switch (this.powerup_shot) {
                   case 1:
@@ -2242,7 +2389,7 @@ assets:
             lib: place
         extends:
           cgroup: Player
-        lastmod: 1718929950160
+        lastmod: 1719336931789
         uid: b2HjJKB6T9r7WM
         behaviors: []
         extendTypes: ''
@@ -2271,32 +2418,6 @@ assets:
         behaviors:
           - kGtLHT7pMQFGNH
         extendTypes: ''
-      - type: template
-        baseClass: Text
-        name: ScoreText
-        depth: 1000
-        texture: -1
-        playAnimationOnStart: false
-        loopAnimation: true
-        animationFPS: 30
-        visible: true
-        events:
-          - eventKey: OnStep
-            lib: core
-            code: this.move();
-            arguments: {}
-          - eventKey: OnDraw
-            code: 'this.text = `Score: ${rooms.current.score}`'
-            arguments: {}
-            lib: core
-        extends:
-          cgroup: ''
-        lastmod: 1718553779444
-        uid: M45TqgDPP2QJ4M
-        behaviors: []
-        extendTypes: ''
-        defaultText: 'Score: 0'
-        textStyle: 8B57cPJczpNWzM
       - type: template
         baseClass: AnimatedSprite
         name: Shield_01
@@ -2336,6 +2457,60 @@ assets:
         behaviors: []
         extendTypes: ''
       - type: template
+        baseClass: AnimatedSprite
+        name: Powerup_Red_Bolt
+        depth: 0
+        texture: rHbfd3rB1btBz6
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnStep
+            lib: core
+            code: this.move();
+            arguments: {}
+          - eventKey: OnCreate
+            code: this.powerup_name = "Shots"
+            arguments: {}
+            lib: core
+        extends:
+          cgroup: ''
+        lastmod: 1718930443593
+        uid: PggqdkDdd1n2zP
+        behaviors:
+          - kGtLHT7pMQFGNH
+        extendTypes: ''
+  - type: folder
+    uid: ftTD5NhR4F7Wj6
+    colorClass: warning
+    icon: help-circle
+    name: Texts
+    lastmod: 1719340432410
+    entries:
+      - type: template
+        baseClass: Text
+        name: LivesText
+        depth: 1000
+        texture: -1
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnDraw
+            code: 'this.text = `Lives: ${rooms.current.lives}`'
+            arguments: {}
+            lib: core
+        extends:
+          cgroup: ''
+        lastmod: 1718929230285
+        uid: kB17B5HTMt1zhb
+        behaviors: []
+        extendTypes: ''
+        defaultText: 'Lives: 0'
+        textStyle: bTqGjr8LQQf8CG
+      - type: template
         baseClass: Text
         name: MainTitleText
         depth: 0
@@ -2358,47 +2533,78 @@ assets:
         defaultText: Space Shooter
         textStyle: cWbkddhWmRnk3f
       - type: template
-        baseClass: AnimatedSprite
-        name: ButtonStart
-        depth: 2
-        texture: 3k26JHm5tfdWwH
+        baseClass: Text
+        name: ScoreText
+        depth: 1000
+        texture: -1
         playAnimationOnStart: false
         loopAnimation: true
         animationFPS: 30
         visible: true
         events:
-          - eventKey: OnPointerUp
-            code: rooms.switch("Main")
-            arguments: {}
+          - eventKey: OnStep
             lib: core
-          - eventKey: OnCreate
-            code: |-
-              const finalY = this.y - 10
-              this.alpha = 0
-
-              u.wait(250).then(() => {
-                  tween.add({
-                      obj: this,
-                      fields: {
-                          y: finalY,
-                          alpha: 1
-                      },
-                      duration: 600,
-                      curve: tween.easeOutCubic,
-                      isUi: true
-                  })
-              })
+            code: this.move();
+            arguments: {}
+          - eventKey: OnDraw
+            code: 'this.text = `Score: ${rooms.current.score}`'
             arguments: {}
             lib: core
         extends:
           cgroup: ''
-          finalX: 432
-          finalY: 310
-        lastmod: 1718877365338
-        uid: MkQ2jrT8Lp9mHH
-        behaviors:
-          - Gq756PDKHMBn7G
+        lastmod: 1718553779444
+        uid: M45TqgDPP2QJ4M
+        behaviors: []
         extendTypes: ''
+        defaultText: 'Score: 0'
+        textStyle: 8B57cPJczpNWzM
+      - type: template
+        baseClass: Text
+        name: PauseTitleText
+        depth: 0
+        texture: -1
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events: []
+        extends:
+          cgroup: ''
+        lastmod: 1719338771085
+        uid: F77Br3LmNn8CnH
+        behaviors: []
+        extendTypes: ''
+        defaultText: Paused
+        textStyle: WB5c2D2qrd8GpC
+      - type: template
+        baseClass: Text
+        name: PauseHintText
+        depth: 0
+        texture: -1
+        playAnimationOnStart: false
+        loopAnimation: true
+        animationFPS: 30
+        visible: true
+        events:
+          - eventKey: OnStep
+            lib: core
+            code: this.move();
+            arguments: {}
+        extends:
+          cgroup: ''
+        lastmod: 1719340340326
+        uid: knW933rFDNKT3z
+        behaviors: []
+        extendTypes: ''
+        defaultText: Press ESC to resume
+        textStyle: DgfTrfzM94tWct
+  - type: folder
+    uid: Rd2kmdNBjGMfKM
+    colorClass: act
+    icon: help-circle
+    name: UI
+    lastmod: 1719340490075
+    entries:
       - type: template
         baseClass: AnimatedSprite
         name: ButtonBackToMain
@@ -2447,28 +2653,45 @@ assets:
         extendTypes: ''
       - type: template
         baseClass: AnimatedSprite
-        name: Powerup_Red_Bolt
-        depth: 0
-        texture: rHbfd3rB1btBz6
+        name: ButtonStart
+        depth: 2
+        texture: 3k26JHm5tfdWwH
         playAnimationOnStart: false
         loopAnimation: true
         animationFPS: 30
         visible: true
         events:
-          - eventKey: OnStep
-            lib: core
-            code: this.move();
+          - eventKey: OnPointerUp
+            code: rooms.switch("Main")
             arguments: {}
+            lib: core
           - eventKey: OnCreate
-            code: this.powerup_name = "Shots"
+            code: |-
+              const finalY = this.y - 10
+              this.alpha = 0
+
+              u.wait(250).then(() => {
+                  tween.add({
+                      obj: this,
+                      fields: {
+                          y: finalY,
+                          alpha: 1
+                      },
+                      duration: 600,
+                      curve: tween.easeOutCubic,
+                      isUi: true
+                  })
+              })
             arguments: {}
             lib: core
         extends:
           cgroup: ''
-        lastmod: 1718930443593
-        uid: PggqdkDdd1n2zP
+          finalX: 432
+          finalY: 310
+        lastmod: 1718877365338
+        uid: MkQ2jrT8Lp9mHH
         behaviors:
-          - kGtLHT7pMQFGNH
+          - Gq756PDKHMBn7G
         extendTypes: ''
 globalVars: []
 settings:
