@@ -149,7 +149,7 @@ assets:
             bindings: {}
         tiles: []
         extends: {}
-        lastmod: 1719340213962
+        lastmod: 1719354145929
         events:
           - eventKey: OnRoomStart
             code: |-
@@ -158,6 +158,9 @@ assets:
 
               this.score = 0
               this.lives = 3
+
+              this.shield_copy = null
+              this.powerup_shield_level = 0
             arguments: {}
             lib: core
           - eventKey: Timer1
@@ -820,7 +823,7 @@ assets:
         source: >-
           /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
           Space Shooter/Powerup_Green_Shield.png
-      - lastmod: 1718564775526
+      - lastmod: 1719352896132
         type: texture
         name: Shield_01
         untill: 0
@@ -829,7 +832,7 @@ assets:
           - 1
         axis:
           - 66
-          - 54
+          - 66
         marginx: 0
         marginy: 0
         imgWidth: 133
@@ -839,7 +842,7 @@ assets:
         offx: 0
         offy: 0
         origname: iRdBb52TLjfb27B.png
-        shape: rect
+        shape: circle
         left: 66
         right: 67
         top: 54
@@ -850,8 +853,8 @@ assets:
         source: >-
           /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
           Space Shooter/Shield_01.png
-        r: 54
-      - lastmod: 1718564780785
+        r: 66
+      - lastmod: 1719352915957
         type: texture
         name: Shield_02
         untill: 0
@@ -860,7 +863,7 @@ assets:
           - 1
         axis:
           - 71
-          - 59
+          - 71
         marginx: 0
         marginy: 0
         imgWidth: 143
@@ -870,7 +873,7 @@ assets:
         offx: 0
         offy: 0
         origname: iTkKBzqML3tk9J9.png
-        shape: rect
+        shape: circle
         left: 71
         right: 72
         top: 59
@@ -881,7 +884,8 @@ assets:
         source: >-
           /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
           Space Shooter/Shield_02.png
-      - lastmod: 1718564791574
+        r: 71
+      - lastmod: 1719352936746
         type: texture
         name: Shield_03
         untill: 0
@@ -890,7 +894,7 @@ assets:
           - 1
         axis:
           - 72
-          - 68
+          - 72
         marginx: 0
         marginy: 0
         imgWidth: 144
@@ -900,7 +904,7 @@ assets:
         offx: 0
         offy: 0
         origname: iMwT67gftJwLKJd.png
-        shape: rect
+        shape: circle
         left: 72
         right: 72
         top: 68
@@ -911,6 +915,7 @@ assets:
         source: >-
           /Applications/ctjs.app/Contents/Resources/app.nw/bundledAssets/textures/Kenney's
           Space Shooter/Shield_03.png
+        r: 72
       - lastmod: 1718867979912
         type: texture
         name: Speed
@@ -1280,20 +1285,27 @@ assets:
             code: |-
               switch (this.powerup_name) {
                   case "Shield":
-                      other.powerup_shield = Math.min(3, other.powerup_shield + 1)
-                      other.powerup_shield === 3 && (rooms.current.score += 1000)
+                      // Give 1000pts if shield level is 3
+                      rooms.current.powerup_shield_level === 3 &&
+                          (rooms.current.score += 1000)
 
-                      other.shield && other.removeChild(other.shield)
+                      // Increase shield level (capped to 3)
+                      rooms.current.powerup_shield_level = Math.min(3, rooms.current.powerup_shield_level + 1)
 
-                      other.shield = templates.copy(`Shield_0${other.powerup_shield}`, 0, 0)
+                      // Destroy the current shield copy if any
+                      rooms.current.shield_copy &&
+                          rooms.current.removeChild(rooms.current.shield_copy)
 
-                      other.addChild(other.shield)
+                      // Add the new shield
+                      rooms.current.shield_copy = templates.copy(`Shield_0${rooms.current.powerup_shield_level}`, 0, 0)
                       break
                   case "Shots":
-                      other.powerup_shot = Math.max(1, Math.min(3, other.powerup_shot + 1))
-                      other.powerup_shot === 3 && (rooms.current.score += 1000)
+                      // Give 1000pts if powerup level is 3
+                      other.powerup_shot === 3 &&
+                          (rooms.current.score += 1000)
 
-                      console.log('Powerup shot', other.powerup_shot)
+                      // Increase powerup level (capped to 3)
+                      other.powerup_shot = Math.max(1, Math.min(3, other.powerup_shot + 1))
                       break
               }
 
@@ -1305,7 +1317,7 @@ assets:
             lib: place
         specification: []
         extendTypes: ''
-        lastmod: 1718930476876
+        lastmod: 1719353771174
         uid: kGtLHT7pMQFGNH
       - type: behavior
         name: Button Behavior
@@ -1353,6 +1365,46 @@ assets:
         extendTypes: ''
         lastmod: 1718876409993
         uid: Gq756PDKHMBn7G
+      - type: behavior
+        name: Shield Behavior
+        behaviorType: template
+        events:
+          - eventKey: collisionCGroup
+            code: |-
+              other.kill = true
+
+              {   
+                  // Reduce the level of the powerup
+                  rooms.current.powerup_shield_level = Math.max(0, rooms.current.powerup_shield_level - 1)
+
+                  // Remove the old copy
+                  rooms.current.removeChild(rooms.current.shield_copy)
+
+                  if (rooms.current.powerup_shield_level === 0) {
+                      // Set to `null` if the shield is gone...
+                      rooms.current.shield_copy = null
+                  } else {
+                      // ... otherwise add a new copy of the current shield's level
+                      rooms.current.shield_copy = templates.copy(
+                          `Shield_0${rooms.current.powerup_shield_level}`,
+                          rooms.current.player.x,
+                          rooms.current.player.y
+                      )
+                  }
+              }
+            arguments:
+              group: Hostile
+            lib: place
+          - eventKey: OnDraw
+            code: |-
+              this.x = rooms.current.player.x
+              this.y = rooms.current.player.y
+            arguments: {}
+            lib: core
+        specification: []
+        extendTypes: ''
+        lastmod: 1719352449820
+        uid: WNJpDLk9TR3jgQ
   - type: folder
     uid: Tndb6KP99g8Pcj
     colorClass: text
@@ -2166,10 +2218,12 @@ assets:
             lib: core
             code: this.move();
             arguments: {}
-        extends: {}
-        lastmod: 1718562241329
+        extends:
+          cgroup: ''
+        lastmod: 1719352506883
         uid: tt1hjfhFq19KT4
-        behaviors: []
+        behaviors:
+          - WNJpDLk9TR3jgQ
         extendTypes: ''
       - type: template
         baseClass: AnimatedSprite
@@ -2283,13 +2337,12 @@ assets:
             arguments: {}
           - eventKey: OnCreate
             code: |-
+              rooms.current.player = this
+
               this.moveSpeed = 480
 
               this.invincible = false
               this.can_shoot = true
-
-              this.shield = null
-              this.powerup_shield = 0
 
               this.powerup_shot = 1
 
@@ -2352,44 +2405,32 @@ assets:
               emitters.fire("Smoke Emitter", other.x, other.y)
               sounds.play("SFX EnemyDie")
 
-              if (this.shield) {    
-                  this.powerup_shield = Math.max(0, this.powerup_shield - 1)
-                  this.removeChild(this.shield)
+              rooms.current.lives--
 
-                  if (this.powerup_shield === 0) {
-                      this.shield = null
-                  } else {
-                      this.shield = templates.copy(`Shield_0${this.powerup_shield}`, 0, 0)
-                      this.addChild(this.shield)
-                  }
+              if (rooms.current.lives <= 0) {
+                  sounds.play("SFX EnemyDie")
+                  emitters.fire("Smoke Emitter", this.x, this.y)
+
+                  this.kill = true
+
+                  rooms.current.timer3 = 1
               } else {
-                  rooms.current.lives--
-
-                  if (rooms.current.lives <= 0) {
-                      sounds.play("SFX EnemyDie")
-                      emitters.fire("Smoke Emitter", this.x, this.y)
-
-                      this.kill = true
-
-                      rooms.current.timer3 = 1
-                  } else {
-                      sounds.play("SFX PlayerHit")
-                  }
-
-                  this.invincible = true
-                  this.can_shoot = false
-
-                  u.wait(1000).then(() => {
-                      this.invincible = false
-                      this.can_shoot = true
-                  })
+                  sounds.play("SFX PlayerHit")
               }
+
+              this.invincible = true
+              this.can_shoot = false
+
+              u.wait(1000).then(() => {
+                  this.invincible = false
+                  this.can_shoot = true
+              })
             arguments:
               group: Hostile
             lib: place
         extends:
           cgroup: Player
-        lastmod: 1719336931789
+        lastmod: 1719352800714
         uid: b2HjJKB6T9r7WM
         behaviors: []
         extendTypes: ''
@@ -2432,10 +2473,12 @@ assets:
             lib: core
             code: this.move();
             arguments: {}
-        extends: {}
-        lastmod: 1718562235050
+        extends:
+          cgroup: ''
+        lastmod: 1719352488802
         uid: td2zN2PqwWTf43
-        behaviors: []
+        behaviors:
+          - WNJpDLk9TR3jgQ
         extendTypes: ''
       - type: template
         baseClass: AnimatedSprite
@@ -2451,10 +2494,12 @@ assets:
             lib: core
             code: this.move();
             arguments: {}
-        extends: {}
-        lastmod: 1718562238675
+        extends:
+          cgroup: ''
+        lastmod: 1719352542278
         uid: 7r35hJR3DgRfCk
-        behaviors: []
+        behaviors:
+          - WNJpDLk9TR3jgQ
         extendTypes: ''
       - type: template
         baseClass: AnimatedSprite
