@@ -1349,7 +1349,7 @@ assets:
 
                       // Destroy the current shield copy if any
                       rooms.current.shield_copy &&
-                          rooms.current.removeChild(rooms.current.shield_copy)
+                          (rooms.current.shield_copy.kill = true)
 
                       // Add the new shield
                       rooms.current.shield_copy = templates.copy(`Shield_0${rooms.current.powerup_shield_level}`, 0, 0)
@@ -1360,7 +1360,7 @@ assets:
                           (rooms.current.score += 1000)
 
                       // Increase powerup level (capped to 3)
-                      other.powerup_shot = Math.max(1, Math.min(3, other.powerup_shot + 1))
+                      other.powerup_shot = Math.min(3, other.powerup_shot + 1)
                       break
               }
 
@@ -1372,7 +1372,7 @@ assets:
             lib: place
         specification: []
         extendTypes: ''
-        lastmod: 1719353771174
+        lastmod: 1719530054692
         uid: kGtLHT7pMQFGNH
       - type: behavior
         name: Button Behavior
@@ -1427,6 +1427,7 @@ assets:
           - eventKey: collisionCGroup
             code: |-
               other.kill = true
+              this.kill = true
 
               {   
                   // Reduce the level of the powerup
@@ -1458,7 +1459,7 @@ assets:
             lib: core
         specification: []
         extendTypes: ''
-        lastmod: 1719352449820
+        lastmod: 1719529873628
         uid: WNJpDLk9TR3jgQ
   - type: folder
     uid: Tndb6KP99g8Pcj
