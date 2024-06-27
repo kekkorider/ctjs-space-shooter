@@ -15,6 +15,7 @@ libs:
   pointer.polyfill: {}
   random: {}
   tween: {}
+  filters: {}
 startroom: k7wGp9CnmDDdcL
 contentTypes: []
 actions:
@@ -149,7 +150,7 @@ assets:
             bindings: {}
         tiles: []
         extends: {}
-        lastmod: 1719354145929
+        lastmod: 1719355475801
         events:
           - eventKey: OnRoomStart
             code: |-
@@ -380,6 +381,60 @@ assets:
         behaviors: []
         extendTypes: ''
         uid: rpwqr3B98Dnzhg
+      - type: room
+        oncreate: ''
+        onstep: ''
+        ondraw: ''
+        onleave: ''
+        gridX: 64
+        gridY: 64
+        diagonalGrid: false
+        disableGrid: false
+        simulate: true
+        width: 1280
+        height: 720
+        restrictCamera: false
+        restrictMaxX: 1280
+        restrictMinX: 1280
+        restrictMaxY: 720
+        restrictMinY: 720
+        isUi: false
+        name: Debug
+        backgroundColor: '#000000'
+        follow: -1
+        backgrounds: []
+        copies:
+          - x: 576
+            'y': 320
+            opacity: 1
+            tint: 16777215
+            scale:
+              x: 2
+              'y': 2
+            rotation: 0
+            uid: b2HjJKB6T9r7WM
+            exts: {}
+            customProperties: {}
+            bindings: {}
+        tiles: []
+        extends: {}
+        lastmod: 1719355477853
+        events:
+          - eventKey: OnRoomStart
+            code: |-
+              this.timer1 = 0.3 // asteroids timer
+              this.timer2 = 3 // enemies timer
+
+              this.score = 0
+              this.lives = 3
+
+              this.shield_copy = null
+              this.powerup_shield_level = 0
+            arguments: {}
+            lib: core
+        behaviors: []
+        extendTypes: ''
+        uid: WQ8tpdHHnK1dPR
   - type: folder
     uid: c5w29pBHLpkCq4
     colorClass: warning
@@ -2323,9 +2378,6 @@ assets:
               camera.height - this.textureHalfHeight))
 
 
-              this.alpha = this.invincible ? 0.5 : 1
-
-
               this.burstEmitter.frozen = rooms.current.paused
 
 
@@ -2356,6 +2408,56 @@ assets:
                   },
                   depth: -1
               })
+
+              const fragment = `
+                  varying vec2 vTextureCoord;
+                  uniform vec2 uMapSize;
+                  uniform sampler2D uSampler;
+                  uniform vec4 inputPixel;
+                  uniform highp vec4 outputFrame;
+                  uniform float uEffect;
+
+                  #define EFFECT_COLOR vec3(1.5, 0.1, 0.05)
+
+                  vec2 getUV(vec2 coord) {
+                      return coord * inputPixel.xy / outputFrame.zw;
+                  }
+
+                  vec3 blendAdd(in vec3 base, in vec3 blend) {
+                      return min(base + blend, vec3(1.));
+                  }
+
+                  vec3 blendAdd(in vec3 base, in vec3 blend, in float opacity) {
+                      return (blendAdd(base, blend) * opacity + base * (1. - opacity));
+                  }
+
+                  void main(void) {
+                      vec2 uv = getUV(vTextureCoord) * 2.0 - 1.0;
+                      uv.x *= uMapSize.x / uMapSize.y;
+
+                      float effectRadius = mod(uEffect * 3.0, 3.0);
+                      float d = distance(vec2(0.0), uv);
+                      d = smoothstep(0.3 * effectRadius, 1.0*effectRadius, d);
+                      vec3 effectColor = EFFECT_COLOR*d;
+                      float effectAlpha = 1.0 - step(1.0, d);
+
+                      vec4 tex0 = texture2D(uSampler, vTextureCoord);
+
+                      vec3 color = blendAdd(tex0.rgb, effectColor, effectAlpha*2.0);
+
+                      gl_FragColor = vec4(color, 1.0) * tex0.a;
+                  }
+              `;
+
+              const uniforms = {
+                  uMapSize: [
+                      this.texture.width,
+                      this.texture.height
+                  ],
+                  uEffect: 0
+              }
+
+              this.fx = ct.filters.custom(this, undefined, fragment, uniforms);
             arguments: {}
             lib: core
           - eventKey: OnActionPress
@@ -2416,6 +2518,14 @@ assets:
                   rooms.current.timer3 = 1
               } else {
                   sounds.play("SFX PlayerHit")
+
+                  tween.value({
+                      from: 0,
+                      to: 1,
+                      duration: 500
+                  }, newValue => {
+                      this.fx.uniforms.uEffect = newValue
+                  })
               }
 
               this.invincible = true
@@ -2428,9 +2538,13 @@ assets:
             arguments:
               group: Hostile
             lib: place
+          - eventKey: OnDraw
+            code: // this.fx.uniforms.uTime += pixiApp.ticker.deltaTime * 0.1
+            arguments: {}
+            lib: core
         extends:
           cgroup: Player
-        lastmod: 1719352800714
+        lastmod: 1719527846062
         uid: b2HjJKB6T9r7WM
         behaviors: []
         extendTypes: ''
